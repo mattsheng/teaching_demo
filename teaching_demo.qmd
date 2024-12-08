@@ -1,0 +1,699 @@
+---
+title: "Type I and II Errors"
+author: "Shengbin Ye"
+editor: source
+format: 
+  revealjs: 
+    html-math-method: mathjax
+    include-in-header:
+      - text: |
+          <script>
+          MathJax = {
+            options: {
+              menuOptions: {
+                settings: {
+                  assistiveMml: false
+                }
+              }
+            }
+          };
+          </script>
+    theme: [custom.scss]
+    slide-number: true
+    chalkboard: true
+    width: 1120
+    height: 700
+    date: 12/10/2024
+    date-format: medium
+---
+
+```{r}
+#| echo: false
+library(ggplot2)
+```
+
+## Target Audience
+<br>
+<br>
+
+::: {.incremental .large}
+- Undergraduate students
+- Diverse majors
+- Have seen **Hypothesis Test**
+:::
+
+## Overview
+<br>
+<br>
+
+::: {.incremental .large}
+- Review of **hypothesis test** framework
+- Define **Type I \& Type II** errors
+- Derive probability of errors
+- Discuss <span class="bold-red">error tradeoff</span>
+:::
+
+
+##
+::: {.callout-note title="<span style='font-size: 2em; color: #4169E1;'>Hypothesis Test</span>"}
+::: {.larger}
+The use of probability theory and statistics to decide <span class="bold-red">2 competing options</span> while recognizing the randomness of data.
+:::
+:::
+
+::: {.incremental}
+- **Null hypothesis** $(H_0)$: a statement of the status quo, i.e., <span class="bold-red">nothing interesting</span> is going on.
+- **Alternative hypothesis** $(H_1)$: a theory that <span class="bold-red">interests you</span> before any data are collected.
+:::
+
+:::: {.columns}
+
+::: {.column width="50%" .fragment}
+::: {.example}
+**New Medication** `r emo::ji("pill")`
+
+::: {.incremental}
+- $H_0$: Ineffective
+- $H_1$: Effective
+:::
+
+:::
+:::
+
+::: {.column width="50%" .fragment}
+::: {.example}
+**Criminal Trial** `r emo::ji("oncoming_police_car")`
+
+::: {.incremental}
+- $H_0$: Not guilty
+- $H_1$: Guilty
+:::
+
+:::
+:::
+
+::::
+
+## How do we decide? {.mid}
+
+. . .
+
+Suppose $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)$, where $\sigma^2$ is known. Want to test
+
+$$H_0: \mu = \mu_0 \quad\text{vs} \quad H_1: \mu > \mu_0$$
+at $\alpha$ level of significance (say $\alpha=0.05$).
+
+. . . 
+
+**Test Statistics**
+
+$$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \class{fragment}{\overset{H_0}\sim N(0, 1)}$$
+
+## How do we decide? {.mid visibility="uncounted"}
+
+Suppose $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)$, where $\sigma^2$ is known. Want to test
+
+$$H_0: \mu = \mu_0 \quad\text{vs} \quad H_1: \mu > \mu_0$$
+at $\alpha$ level of significance (say $\alpha=0.05$).
+
+**Test Statistics**
+
+$$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \overset{H_0}\sim N(0, 1)$$
+
+**Decision Rule**
+
+- Reject $H_0$ if [<span class="green-box">$z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} \geq z_{\alpha}$</span>]{.fragment}
+- Fail to reject $H_0$ if [<span class="red-box">$z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}} < z_{\alpha}$]{.fragment}
+
+
+## Decision Rule
+```{r}
+#| echo: false
+#| output-location: slide
+
+# Define the density of N(0, 1)
+x <- seq(-3, 5.5, by = 0.01)
+density_0_1 <- dnorm(x, mean = 0, sd = 1)
+density_2_1 <- dnorm(x, mean = 2.5, sd = 1)
+
+# Create a data frame for plotting
+data <- data.frame(x = x, density_0_1 = density_0_1, density_2_1 = density_2_1)
+
+# Plot only the red density curve
+p <- ggplot(data) +
+  geom_line(aes(x = x, y = density_0_1), color = "red", size = 1) +
+  geom_area(data = subset(data, x > 1.96), aes(x = x, y = density_0_1), 
+            fill = "red", alpha = 0.3) +
+  geom_segment(aes(x = 1.96, xend = 1.96, y = 0, yend = dnorm(1.96, mean = 0, sd = 1)),
+               color = "black", linetype = "dashed") +
+  geom_segment(aes(x = 0, xend = 0, y = 0, yend = 0.01),
+               color = "black") +
+  geom_hline(yintercept = 0) +
+  annotate("text", x = 0, y = -0.02, label = "0", size = 6, color = "black") +
+  annotate("text", x = 1.9, y = -0.02, label = expression(z[0.05]), size = 6, color = "black") +
+  annotate("text", x = -1.2, y = 0.4, label = expression(H[0]: mu==0), size = 8, color = "red") +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+p
+```
+Decision rule: $z \geq z_{0.05}$
+
+## Decision Rule {visibility="uncounted"}
+
+```{r}
+#| echo: false
+#| output-location: slide
+
+p + 
+  geom_segment(aes(x = 1, xend = 1, y = 0, yend = 0.01),
+               color = "black") +
+  annotate("text", x = 1, y = -0.017, label = "z=1", size = 6, color = "black")
+```
+Decision rule: $z \geq z_{0.05}$ [`r emo::ji("x")` $\implies$ Fail to reject $H_0$]{.fragment}
+
+## Decision Rule {visibility="uncounted"}
+
+```{r}
+#| echo: false
+#| output-location: slide
+
+p + 
+  geom_segment(aes(x = 2.7, xend = 2.7, y = 0, yend = 0.01),
+               color = "black") +
+  annotate("text", x = 2.7, y = -0.017, label = "z=2.7", size = 6, color = "black")
+```
+Decision rule: $z \geq z_{0.05}$ [`r emo::ji("white_check_mark")` $\implies$ Reject $H_0$]{.fragment}
+
+
+
+## Decision Rule {visibility="uncounted"}
+
+```{r}
+#| echo: false
+#| output-location: slide
+
+p + 
+  geom_line(aes(x = x, y = density_2_1), color = "blue", size = 1) +
+  geom_segment(aes(x = 2.7, xend = 2.7, y = 0, yend = 0.01),
+               color = "black") +
+  annotate("text", x = 2.7, y = -0.017, label = "z=2.7", size = 6, color = "black") +
+  annotate("text", x = 3.8, y = 0.4, label = expression(H[1]: mu>0), size = 8, color = "blue")
+```
+
+$z = 2.7$ is more likely to come from the <span class="bold-blue">blue distribution</span> $(H_1: \mu > 0)$
+
+
+# Will we always get it right?
+
+## Reality Check
+
+::: {style="margin-bottom: 2em;"}
+:::
+
+| Decision/Reality      | $H_0$ is True  | $H_1$ is True  |
+|-----------------------|:----------------:|:----------------:|
+| Fail to reject $H_0$  | [`r emo::ji("white_check_mark")`]{.fragment fragment-index=1} | [`r emo::ji("x")`]{.fragment fragment-index=4}  |
+| Reject $H_0$  |  [`r emo::ji("x")`]{.fragment fragment-index=3} | [`r emo::ji("white_check_mark")`]{.fragment fragment-index=2} |
+
+::: {style="margin-bottom: 2em;"}
+:::
+
+::: {.fragment fragment-index=3}
+
+::: {.callout-warning title="<span style='font-size: 1.75em; color: #B8860B;'>Error Type</span>"}
+
+::: {.larger}
+
+- [**Type I error**: Reject $H_0$ given $H_0$ is true]{.fragment fragment-index=3}
+- [**Type II error**: Fail to reject $H_0$ given $H_0$ is false]{.fragment fragment-index=4}
+
+:::
+
+:::
+
+:::
+
+
+
+## How likely is a Type I Error?
+
+::: {style="margin-bottom: 2em;"}
+:::
+
+$$
+\begin{align}
+  P(\text{Type I Error})
+    &= \class{fragment}{P(\text{reject } H_0 \mid H_0 \text{ is true})} \\[3px]
+    &\class{fragment}{{} = P(Z \geq z_\alpha } \class{fragment}{ \mid \mu = \mu_0)}         \\[3px]
+    &\class{fragment}{{} = P(Z \geq z_\alpha \mid Z \sim N(0,1))}       \\[3px]
+    &\class{fragment}{{} = \alpha}
+\end{align}
+$$
+
+## How likely is a Type I Error? {visibility="uncounted"}
+
+::: {style="margin-bottom: 2em;"}
+:::
+
+$$
+\begin{align}
+  P(\text{Type I Error})
+    &= P(\text{reject } H_0 \mid H_0 \text{ is true}) \\[3px]
+    &= P(Z \geq z_\alpha \mid \mu = \mu_0)            \\[3px]
+    &= P(Z \geq z_\alpha \mid Z \sim N(0,1))          \\[3px]
+    &= \alpha
+\end{align}
+$$
+
+::: {.callout-note title="<span style='font-size: 1.75em; color: #0078D7;'>Theorem</span>"}
+
+::: {.larger}
+
+$$P(\text{Type I Error}) = \alpha \qquad \forall \, \text{HT}$$
+
+::: {.incremental}
+- Directly control Type I Error rate via <span class="bold-red">significance level</span> $\alpha$
+:::
+
+:::
+:::
+
+# Let's verify this!
+
+## {auto-animate=true}
+
+::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
+
+[$$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$]{.fragment}
+
+:::
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: "4|5|6"
+set.seed(123)
+
+# Initialize parameters
+mu0 <- 0               # H_0: mu = 0
+sigma <- 1; n <- 50    # sd and sample size
+alpha <- 0.05          # significance level
+z_alpha <- qnorm(alpha, lower.tail = F)
+n_rej <- 0
+```
+
+
+## {auto-animate=true visibility="uncounted"}
+
+::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
+$$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
+
+:::
+
+```{r}
+#| echo: true
+#| code-line-numbers: "10,11,12|13|14"
+set.seed(123)
+
+# Initialize parameters
+mu0 <- 0               # H_0: mu = 0
+sigma <- 1; n <- 50    # sd and sample size
+alpha <- 0.05          # significance level
+z_alpha <- qnorm(alpha, lower.tail = F)
+n_rej <- 0
+
+# Conduct HT for 10000 times
+for (i in 1:10000) {
+  x <- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)
+  z <- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics
+  if (z >= z_alpha) n_rej <- n_rej + 1     # count rejections
+}
+```
+
+## {auto-animate=true visibility="uncounted"}
+
+::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
+$$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
+
+:::
+
+```{r}
+#| echo: true
+#| code-line-numbers: "17,18"
+set.seed(123)
+
+# Initialize parameters
+mu0 <- 0; sigma <- 1 # H_0: mu = 0
+n <- 50              # sample size
+alpha <- 0.05        # significance level
+n_rej <- 0
+z_alpha <- qnorm(alpha, lower.tail = F)
+
+# Conduct HT for 10000 times
+for (i in 1:10000) {
+  x <- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)
+  z <- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics
+  if (z >= z_alpha) n_rej <- n_rej + 1     # count rejections
+}
+
+# Estimated P(Type I Error)
+n_rej / 10000
+```
+
+
+**Very close to $\alpha = 0.05$!**
+
+
+## How should we interpret Type I Error Rate?
+
+::: {.callout-note title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>"}
+[If <span class="bold-green">$H_0: \mu = 0$ were true</span>, there is a 5\% chance that the HT procedure will lead to the conclusion of]{.fragment}
+
+<div class="fragment" style="text-align: center;">"Reject $H_0$"</div>
+:::
+
+::: {.r-stack}
+![](type_I_error_1.png){.fragment .fade-in-then-out width="900" height="562"}
+
+![](type_I_error_2.png){.fragment width="900" height="562"}
+:::
+
+
+
+
+## How likely is a Type II Error?
+
+::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
+$$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
+
+:::
+
+. . .
+
+$$P(\text{Type II Error})= P(\underbrace{\text{fail to reject } H_0}_{(1)} \mid \underbrace{H_1 \text{ is true}}_{(2)})$$
+
+::: {.incremental}
+1. When would we <span class="bold-red">``fail to reject $H_0$"</span> ? [$\implies$ <span class="red-box">$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} < z_\alpha$</span>]{.fragment}
+2. What does <span class="bold-red">``$H_1$ is true"</span> mean? [$\implies$ <span class="green-box">$\mu = \mu_1$</span>, where $\mu_1$ is a number $> \mu_0$]{.fragment}
+<div class="centered-fragment fragment">
+  <span class="green-box">$$\frac{\bar{X} - \mu_1}{\sigma/\sqrt{n}} \overset{H_1}{\sim} N(0, 1)$$</span>
+</div>
+:::
+
+## How likely is a Type II Error? {.scrollable}
+
+::: {.small}
+$$
+\begin{align}
+  P(\text{Type II Error})
+    &= \class{fragment}{P(\text{fail to reject } H_0 \mid H_1 \text{ is true})} \\[3px]
+    &\class{fragment}{{} = P\left(\frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} < z_\alpha \mid \mu = \mu_1\right)}         \\[3px]
+    &\class{fragment}{{} = P\left(\bar{X} - \mu_0 < z_\alpha \cdot \frac{\sigma}{\sqrt{n}} \mid \cdots\right)}       \\[3px]
+   &\class{fragment}{{} = P\left(\bar{X} < \mu_0 + z_\alpha \cdot \frac{\sigma}{\sqrt{n}} \mid \cdots\right)}       \\[3px]
+   &\class{fragment}{{} = P\left(\bar{X} - \mu_1 < \mu_0 - \mu_1 + z_\alpha \cdot \frac{\sigma}{\sqrt{n}} \mid \cdots\right)}       \\[3px]
+   &\class{fragment}{{} = P\Bigg(\underbrace{\frac{\bar{X} - \mu_1}{\sigma/\sqrt{n}}}_{\class{fragment}{\overset{H_1}{\sim} N(0,1)}} < \underbrace{\frac{\mu_0 - \mu_1}{\sigma/\sqrt{n}} + z_\alpha}_{\class{fragment}{\text{constant}}} \mid \cdots\Bigg)}       \\[3px]
+   &\class{fragment}{{} = \beta \quad\text{by looking up } Z \text{ table}} 
+\end{align}
+$$
+
+:::
+
+
+# Was my math correct?
+
+## {auto-animate=true}
+Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
+
+```{r}
+#| echo: true
+#| code-line-numbers: "4|5|6"
+set.seed(123)
+
+# Initialize parameters
+mu0 <- 0; mu1 <- 0.3    # mu1 = 0.3 > 0 = mu0
+sigma <- 1; n <- 50     # sd and sample size
+alpha <- 0.05           # significance level
+z_alpha <- qnorm(alpha, lower.tail = F)
+n_not_rej <- 0
+```
+
+## {auto-animate=true}
+Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
+
+```{r}
+#| echo: true
+#| code-line-numbers: "10,11,12|13|14"
+set.seed(123)
+
+# Initialize parameters
+mu0 <- 0; mu1 <- 0.3    # mu1 = 0.3 > 0 = mu0
+sigma <- 1; n <- 50     # sd and sample size
+alpha <- 0.05           # significance level
+z_alpha <- qnorm(alpha, lower.tail = F)
+n_not_rej <- 0
+
+# Repeat for 10000 times
+for (i in 1:10000) {
+  x <- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)
+  z <- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics
+  if (z < z_alpha) n_not_rej <- n_not_rej + 1  # count fail to reject
+}
+```
+
+## {auto-animate=true}
+Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
+
+```{r}
+#| echo: true
+#| code-line-numbers: "17,18"
+set.seed(123)
+
+# Initialize parameters
+mu0 <- 0; mu1 <- 0.3    # mu1 = 0.3 > 0 = mu0
+sigma <- 1; n <- 50     # sd and sample size
+alpha <- 0.05           # significance level
+z_alpha <- qnorm(alpha, lower.tail = F)
+n_not_rej <- 0
+
+# Repeat for 10000 times
+for (i in 1:10000) {
+  x <- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)
+  z <- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics
+  if (z < z_alpha) n_not_rej <- n_not_rej + 1  # count fail to reject
+}
+
+# Estimated beta
+n_not_rej / 10000
+```
+
+
+## {auto-animate=true}
+Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
+
+```{r}
+#| echo: true
+#| code-line-numbers: "20,21"
+set.seed(123)
+
+# Initialize parameters
+mu0 <- 0; mu1 <- 0.3    # mu1 = 0.3 > 0 = mu0
+sigma <- 1; n <- 50     # sd and sample size
+alpha <- 0.05           # significance level
+z_alpha <- qnorm(alpha, lower.tail = F)
+n_not_rej <- 0
+
+# Repeat for 10000 times
+for (i in 1:10000) {
+  x <- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)
+  z <- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics
+  if (z < z_alpha) n_not_rej <- n_not_rej + 1  # count fail to reject
+}
+
+# Estimated beta
+n_not_rej / 10000
+
+# Theoretical beta
+pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
+```
+
+
+#### Seem to be correct `r emo::ji("100")`
+
+
+## How do we interpret Type II Error Rate?
+
+::: {.callout-note title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>"}
+[If <span class="bold-green">$H_1: \mu = 0.3$ were true</span>, there is a 31.7\% chance that the HT procedure will lead to the conclusion of]{.fragment}
+
+<div class="fragment" style="text-align: center;">"Fail to reject $H_0$"</div>
+:::
+
+::: {.r-stack}
+![](type_I_error_1.png){.fragment .fade-in-then-out width="900" height="562"}
+
+![](type_II_error_1.png){.fragment .fade-in-then-out width="900" height="562"}
+
+![](type_II_error_2.png){.fragment width="900" height="562"}
+:::
+
+
+
+
+# Can we minimize both $\alpha$ and $\beta$?
+
+##
+
+<div style="position: relative; padding-bottom: 65%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://www.desmos.com/calculator/x3b1y5xlll" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+  </iframe>
+</div>
+
+
+# Which should we minimize?
+
+::: {.slide-reduce-margin}
+
+## New Medication `r emo::ji("pill")` 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- $H_0$: Ineffective
+- $H_1$: Effective
+
+[**Type I error**:]{.fragment} [ineffective drug labeled as effective]{.fragment}
+
+[&emsp;&emsp;<span class="bold-red">Pharma</span>: profit `r emo::ji("heavy_dollar_sign")` `r emo::ji("chart_with_upwards_trend")`]{.fragment}
+
+[&emsp;&emsp;<span class="bold-blue">Patients</span>: paid for placebo `r emo::ji("cry")`]{.fragment}
+
+::: {style="margin-bottom: 1em;"}
+:::
+
+[**Type II error**:]{.fragment} [effective drug labeled as ineffective]{.fragment}
+
+[&emsp;&emsp;<span class="bold-red">Pharma</span>: financial trouble `r emo::ji("heavy_dollar_sign")` `r emo::ji("chart_with_downwards_trend")`]{.fragment}
+
+[&emsp;&emsp;<span class="bold-blue">Patients</span>: missed better `r emo::ji("pill")`]{.fragment}
+
+
+<div class="centered-fragment fragment">
+  <span class="red-box">
+    Expensive `r emo::ji("pill")` $\implies$ Minimize $\alpha$ <br>
+    &emsp;&ensp;&thinsp;Cheap `r emo::ji("pill")` $\implies$ Minimize $\beta$
+  </span>
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+:::
+
+::::
+
+:::
+
+
+::: {.slide-reduce-margin}
+
+## New Medication `r emo::ji("pill")` 
+
+:::: {.columns}
+
+::: {.column width="50%" style="opacity: 0.5;"}
+
+- $H_0$: Ineffective
+- $H_1$: Effective
+
+**Type I error**: ineffective drug labeled as effective
+
+&emsp;&emsp;<span class="bold-red">Pharma</span>: profit `r emo::ji("heavy_dollar_sign")` `r emo::ji("chart_with_upwards_trend")`
+
+&emsp;&emsp;<span class="bold-blue">Patients</span>: paid for placebo `r emo::ji("cry")`
+
+::: {style="margin-bottom: 1em;"}
+:::
+
+**Type II error**: effective drug labeled as ineffective
+
+&emsp;&emsp;<span class="bold-red">Pharma</span>: financial trouble `r emo::ji("heavy_dollar_sign")` `r emo::ji("chart_with_downwards_trend")`
+
+&emsp;&emsp;<span class="bold-blue">Patients</span>: missed better `r emo::ji("pill")`
+
+
+<div class="centered-fragment">
+  <span class="red-box">
+    Expensive `r emo::ji("pill")` $\implies$ Minimize $\alpha$ <br>
+    &emsp;&ensp;&thinsp;Cheap `r emo::ji("pill")` $\implies$ Minimize $\beta$
+  </span>
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+- $H_0$: Not toxic
+- $H_1$: Toxic
+
+[**Type I error**:]{.fragment} [safe drug labeled as toxic]{.fragment}
+
+[&emsp;&emsp;<span class="bold-red">Pharma</span>: financial trouble `r emo::ji("heavy_dollar_sign")` `r emo::ji("chart_with_downwards_trend")`]{.fragment}
+
+[&emsp;&emsp;<span class="bold-blue">Patients</span>: `r emo::ji("neutral_face")`]{.fragment}
+
+::: {style="margin-bottom: 1em;"}
+:::
+
+[**Type II error**:]{.fragment} [toxic drug labeled as safe]{.fragment}
+
+[&emsp;&emsp;<span class="bold-red">Pharma</span>: reputation `r emo::ji("chart_with_downwards_trend")`]{.fragment}
+
+[&emsp;&emsp;<span class="bold-blue">Patients</span>: `r emo::ji("dizzy_face")` `r emo::ji("dizzy_face")` `r emo::ji("dizzy_face")`]{.fragment}
+
+<div class="centered-fragment fragment">
+ <span class="red-box">Minimize $\beta$</span>
+</div>
+:::
+
+::::
+
+:::
+
+
+## Recap
+
+::: {.incremental}
+- HT can yield incorrect conclusion!
+- $P(\text{Type I Error})$ is always $\alpha$
+- $P(\text{Type II Error})$ or $\beta$ depends on many factors
+  + $\alpha$
+  + $n$ and $\sigma$
+  + $\mu_1$: the actural value of $\mu$ under $H_1$
+- <span class="bold-red">Tradeoff between $\alpha$ and $\beta$</span>
+  + Context-dependent
+  + Perspective-dependent
+:::
+
+. . . 
+
+::: {.callout-caution title="<span style='font-size: 1.5em; color: #B8860B;'>Pop Quiz</span>" .large}
+What can we do to decrease $\beta$ ?
+
+::: {.fragment}
+- $\alpha \uparrow$
+- $n \uparrow$
+- $\sigma \downarrow$ (sometimes...)
+:::
+:::

@@ -1,0 +1,172 @@
+/*-- scss:defaults --*/
+
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap';
+
+$font-family-sans-serif: "Noto Sans", sans-serif;
+$presentation-heading-color: #86a293;
+$body-color: #404040;
+
+
+/*-- scss:rules --*/
+
+tbody tr:nth-child(odd) {
+  background-color: #DCDCDC;
+}
+
+
+strong {
+  color: #44745A;
+  font-weight: 900;
+}
+
+body {
+  font-size: 0.8em; /* Adjust this value to make text smaller (e.g., 0.8em, 0.7em, etc.) */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 0.75em; /* Adjust heading sizes */
+}
+
+p, li {
+  font-size: 0.8em; /* Adjust paragraph and list sizes */
+}
+
+code, pre {
+  font-size: 0.8em; /* Adjust code block sizes */
+}
+
+.small {
+  font-size: 0.75em;
+}
+
+.mid {
+  font-size: 0.93em;
+}
+
+.smaller {
+  font-size: 0.5em;
+}
+
+.large {
+  font-size: 1.25em;
+}
+
+.larger {
+  font-size: 1.5em;
+}
+
+.largest {
+  font-size: 3em;
+}
+
+.inverse {
+  background-color: #6CA0DC;
+  color: #ffffff;
+}
+.inverse h1, .inverse h2, .inverse h3 {
+  color: #f3f3f3;
+}
+
+.reveal pre code {
+  word-wrap: normal;
+}
+
+.reveal .slide .question {
+  border: 5px solid #404040;
+  border-left: 50px solid #404040;
+  padding: 0.5em;
+  background: #C2F9BB;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+.question::after {
+    content: '';
+    position: absolute;
+    bottom: 100px;
+}
+
+.reveal .slide .theorem {
+  border: 5px solid #404040;
+  border-left: 30px solid #404040;
+  padding: 0.5em;
+  background: rgba(0, 40, 200, 0.2) ;
+  border-radius: 25px;
+  margin-top: 10px;
+}
+
+.theorem::after {
+    content: '';
+    position: absolute;
+    bottom: 100px;
+}
+
+.reveal .slide .example {
+  border: 5px solid #404040;
+  padding-left: 0.5em;
+  border-radius: 25px;
+}
+
+.example::after {
+    content: '';
+    position: absolute;
+    bottom: 100px;
+}
+
+details>summary {
+  font-size: 0.5em;
+}
+
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.bold-red {
+  color: #f08080;  /* Red text color */
+  font-weight: bold; /* Bold text */
+}
+
+.bold-blue{
+  color: #0078D7;  /* Blue text color */
+  font-weight: bold; /* Bold text */
+}
+
+.bold-green {
+  color: #44745A;  /* Green text color */
+  font-weight: bold; /* Bold text */
+}
+
+.center-table td {
+  text-align: center; /* Centers content horizontally */
+  vertical-align: middle; /* Centers content vertically */
+}
+
+.red-box {
+  display: inline-block; /* Makes the box fit its content */
+  padding: 5px;          /* Adds space inside the box */
+  border: 2px solid red; /* Red border */
+  background-color: #ffe6e6; /* Light red background */
+  border-radius: 5px;    /* Optional: Rounded corners */
+}
+
+.green-box {
+  display: inline-block; /* Makes the box fit its content */
+  padding: 5px;          /* Adds space inside the box */
+  border: 2px solid green; /* Green border */
+  background-color: #e6ffe6; /* Light green background */
+  border-radius: 5px;    /* Optional: Rounded corners */
+}
+
+.centered-fragment {
+  display: flex; /* Enables flexible box layout */
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically (optional) */
+  margin: 10px 0; /* Optional: Add space around the element */
+}
+
+.slide-reduce-margin {
+  margin-top: -5vh !important; /* Reduce top margin by 10% of the viewport height */
+}

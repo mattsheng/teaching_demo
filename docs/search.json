@@ -1,0 +1,184 @@
+[
+  {
+    "objectID": "teaching_demo.html#target-audience",
+    "href": "teaching_demo.html#target-audience",
+    "title": "Type I and II Errors",
+    "section": "Target Audience",
+    "text": "Target Audience\n \n\n\nUndergraduate students\nDiverse majors\nHave seen Hypothesis Test"
+  },
+  {
+    "objectID": "teaching_demo.html#overview",
+    "href": "teaching_demo.html#overview",
+    "title": "Type I and II Errors",
+    "section": "Overview",
+    "text": "Overview\n \n\n\nReview of hypothesis test framework\nDefine Type I & Type II errors\nDerive probability of errors\nDiscuss error tradeoff"
+  },
+  {
+    "objectID": "teaching_demo.html#section",
+    "href": "teaching_demo.html#section",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Hypothesis Test\n\n\n\nThe use of probability theory and statistics to decide 2 competing options while recognizing the randomness of data.\n\n\n\n\n\n\n\nNull hypothesis \\((H_0)\\): a statement of the status quo, i.e., nothing interesting is going on.\nAlternative hypothesis \\((H_1)\\): a theory that interests you before any data are collected.\n\n\n\n\n\nNew Medication 💊\n\n\n\\(H_0\\): Ineffective\n\\(H_1\\): Effective\n\n\n\n\n\nCriminal Trial 🚔\n\n\n\\(H_0\\): Not guilty\n\\(H_1\\): Guilty"
+  },
+  {
+    "objectID": "teaching_demo.html#how-do-we-decide",
+    "href": "teaching_demo.html#how-do-we-decide",
+    "title": "Type I and II Errors",
+    "section": "How do we decide?",
+    "text": "How do we decide?\n\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs} \\quad H_1: \\mu &gt; \\mu_0\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\n\n\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\class{fragment}{\\overset{H_0}\\sim N(0, 1)}\\]"
+  },
+  {
+    "objectID": "teaching_demo.html#how-do-we-decide-1",
+    "href": "teaching_demo.html#how-do-we-decide-1",
+    "title": "Type I and II Errors",
+    "section": "How do we decide?",
+    "text": "How do we decide?\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs} \\quad H_1: \\mu &gt; \\mu_0\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\overset{H_0}\\sim N(0, 1)\\]\nDecision Rule\n\nReject \\(H_0\\) if \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} \\geq z_{\\alpha}\\)\nFail to reject \\(H_0\\) if \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} &lt; z_{\\alpha}\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#decision-rule",
+    "href": "teaching_demo.html#decision-rule",
+    "title": "Type I and II Errors",
+    "section": "Decision Rule",
+    "text": "Decision Rule\n\nDecision rule: \\(z \\geq z_{0.05}\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#decision-rule-1",
+    "href": "teaching_demo.html#decision-rule-1",
+    "title": "Type I and II Errors",
+    "section": "Decision Rule",
+    "text": "Decision Rule\n\nDecision rule: \\(z \\geq z_{0.05}\\) ❌ \\(\\implies\\) Fail to reject \\(H_0\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#decision-rule-2",
+    "href": "teaching_demo.html#decision-rule-2",
+    "title": "Type I and II Errors",
+    "section": "Decision Rule",
+    "text": "Decision Rule\n\nDecision rule: \\(z \\geq z_{0.05}\\) ✅ \\(\\implies\\) Reject \\(H_0\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#decision-rule-3",
+    "href": "teaching_demo.html#decision-rule-3",
+    "title": "Type I and II Errors",
+    "section": "Decision Rule",
+    "text": "Decision Rule\n\n\\(z = 2.7\\) is more likely to come from the blue distribution \\((H_1: \\mu &gt; 0)\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#reality-check",
+    "href": "teaching_demo.html#reality-check",
+    "title": "Type I and II Errors",
+    "section": "Reality Check",
+    "text": "Reality Check\n\n\n\n\n\n\n\n\n\n\n\nDecision/Reality\n\\(H_0\\) is True\n\\(H_1\\) is True\n\n\n\n\nFail to reject \\(H_0\\)\n✅\n❌\n\n\nReject \\(H_0\\)\n❌\n✅\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nError Type\n\n\n\n\nType I error: Reject \\(H_0\\) given \\(H_0\\) is true\nType II error: Fail to reject \\(H_0\\) given \\(H_0\\) is false"
+  },
+  {
+    "objectID": "teaching_demo.html#how-likely-is-a-type-i-error",
+    "href": "teaching_demo.html#how-likely-is-a-type-i-error",
+    "title": "Type I and II Errors",
+    "section": "How likely is a Type I Error?",
+    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= \\class{fragment}{P(\\text{reject } H_0 \\mid H_0 \\text{ is true})} \\\\[3px]\n    &\\class{fragment}{{} = P(Z \\geq z_\\alpha } \\class{fragment}{ \\mid \\mu = \\mu_0)}         \\\\[3px]\n    &\\class{fragment}{{} = P(Z \\geq z_\\alpha \\mid Z \\sim N(0,1))}       \\\\[3px]\n    &\\class{fragment}{{} = \\alpha}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "teaching_demo.html#how-likely-is-a-type-i-error-1",
+    "href": "teaching_demo.html#how-likely-is-a-type-i-error-1",
+    "title": "Type I and II Errors",
+    "section": "How likely is a Type I Error?",
+    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= P(\\text{reject } H_0 \\mid H_0 \\text{ is true}) \\\\[3px]\n    &= P(Z \\geq z_\\alpha \\mid \\mu = \\mu_0)            \\\\[3px]\n    &= P(Z \\geq z_\\alpha \\mid Z \\sim N(0,1))          \\\\[3px]\n    &= \\alpha\n\\end{align}\n\\]\n\n\n\n\n\n\n\nTheorem\n\n\n\n\\[P(\\text{Type I Error}) = \\alpha \\qquad \\forall \\, \\text{HT}\\]\n\n\nDirectly control Type I Error rate via significance level \\(\\alpha\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#section-1",
+    "href": "teaching_demo.html#section-1",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)\nn_rej &lt;- 0"
+  },
+  {
+    "objectID": "teaching_demo.html#section-2",
+    "href": "teaching_demo.html#section-2",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)\nn_rej &lt;- 0\n\n# Conduct HT for 10000 times\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics\n  if (z &gt;= z_alpha) n_rej &lt;- n_rej + 1     # count rejections\n}"
+  },
+  {
+    "objectID": "teaching_demo.html#section-3",
+    "href": "teaching_demo.html#section-3",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0; sigma &lt;- 1 # H_0: mu = 0\nn &lt;- 50              # sample size\nalpha &lt;- 0.05        # significance level\nn_rej &lt;- 0\nz_alpha &lt;- qnorm(alpha, lower.tail = F)\n\n# Conduct HT for 10000 times\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics\n  if (z &gt;= z_alpha) n_rej &lt;- n_rej + 1     # count rejections\n}\n\n# Estimated P(Type I Error)\nn_rej / 10000\n\n[1] 0.0478\n\n\nVery close to \\(\\alpha = 0.05\\)!"
+  },
+  {
+    "objectID": "teaching_demo.html#how-should-we-interpret-type-i-error-rate",
+    "href": "teaching_demo.html#how-should-we-interpret-type-i-error-rate",
+    "title": "Type I and II Errors",
+    "section": "How should we interpret Type I Error Rate?",
+    "text": "How should we interpret Type I Error Rate?\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_0: \\mu = 0\\) were true, there is a 5% chance that the HT procedure will lead to the conclusion of\n\n“Reject \\(H_0\\)”"
+  },
+  {
+    "objectID": "teaching_demo.html#how-likely-is-a-type-ii-error",
+    "href": "teaching_demo.html#how-likely-is-a-type-ii-error",
+    "title": "Type I and II Errors",
+    "section": "How likely is a Type II Error?",
+    "text": "How likely is a Type II Error?\n\n\n\n\n\n\n\nRejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\\[P(\\text{Type II Error})= P(\\underbrace{\\text{fail to reject } H_0}_{(1)} \\mid \\underbrace{H_1 \\text{ is true}}_{(2)})\\]\n\n\nWhen would we ``fail to reject \\(H_0\\)“ ? \\(\\implies\\) \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha\\)\nWhat does ``\\(H_1\\) is true” mean? \\(\\implies\\) \\(\\mu = \\mu_1\\), where \\(\\mu_1\\) is a number \\(&gt; \\mu_0\\)\n\n\\[\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}} \\overset{H_1}{\\sim} N(0, 1)\\]"
+  },
+  {
+    "objectID": "teaching_demo.html#how-likely-is-a-type-ii-error-1",
+    "href": "teaching_demo.html#how-likely-is-a-type-ii-error-1",
+    "title": "Type I and II Errors",
+    "section": "How likely is a Type II Error?",
+    "text": "How likely is a Type II Error?\n\n\\[\n\\begin{align}\n  P(\\text{Type II Error})\n    &= \\class{fragment}{P(\\text{fail to reject } H_0 \\mid H_1 \\text{ is true})} \\\\[3px]\n    &\\class{fragment}{{} = P\\left(\\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha \\mid \\mu = \\mu_1\\right)}         \\\\[3px]\n    &\\class{fragment}{{} = P\\left(\\bar{X} - \\mu_0 &lt; z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\left(\\bar{X} &lt; \\mu_0 + z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\left(\\bar{X} - \\mu_1 &lt; \\mu_0 - \\mu_1 + z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\Bigg(\\underbrace{\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}}}_{\\class{fragment}{\\overset{H_1}{\\sim} N(0,1)}} &lt; \\underbrace{\\frac{\\mu_0 - \\mu_1}{\\sigma/\\sqrt{n}} + z_\\alpha}_{\\class{fragment}{\\text{constant}}} \\mid \\cdots\\Bigg)}       \\\\[3px]\n   &\\class{fragment}{{} = \\beta \\quad\\text{by looking up } Z \\text{ table}}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "teaching_demo.html#section-4",
+    "href": "teaching_demo.html#section-4",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Let’s assume \\(\\mu_0 = 0\\) and \\(\\mu_1 = 0.3\\), which satisfies \\(H_1: \\mu &gt; 0\\).\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0; mu1 &lt;- 0.3    # mu1 = 0.3 &gt; 0 = mu0\nsigma &lt;- 1; n &lt;- 50     # sd and sample size\nalpha &lt;- 0.05           # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)\nn_not_rej &lt;- 0"
+  },
+  {
+    "objectID": "teaching_demo.html#section-5",
+    "href": "teaching_demo.html#section-5",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Let’s assume \\(\\mu_0 = 0\\) and \\(\\mu_1 = 0.3\\), which satisfies \\(H_1: \\mu &gt; 0\\).\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0; mu1 &lt;- 0.3    # mu1 = 0.3 &gt; 0 = mu0\nsigma &lt;- 1; n &lt;- 50     # sd and sample size\nalpha &lt;- 0.05           # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)\nn_not_rej &lt;- 0\n\n# Repeat for 10000 times\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics\n  if (z &lt; z_alpha) n_not_rej &lt;- n_not_rej + 1  # count fail to reject\n}"
+  },
+  {
+    "objectID": "teaching_demo.html#section-6",
+    "href": "teaching_demo.html#section-6",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Let’s assume \\(\\mu_0 = 0\\) and \\(\\mu_1 = 0.3\\), which satisfies \\(H_1: \\mu &gt; 0\\).\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0; mu1 &lt;- 0.3    # mu1 = 0.3 &gt; 0 = mu0\nsigma &lt;- 1; n &lt;- 50     # sd and sample size\nalpha &lt;- 0.05           # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)\nn_not_rej &lt;- 0\n\n# Repeat for 10000 times\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics\n  if (z &lt; z_alpha) n_not_rej &lt;- n_not_rej + 1  # count fail to reject\n}\n\n# Estimated beta\nn_not_rej / 10000\n\n[1] 0.317"
+  },
+  {
+    "objectID": "teaching_demo.html#section-7",
+    "href": "teaching_demo.html#section-7",
+    "title": "Type I and II Errors",
+    "section": "",
+    "text": "Let’s assume \\(\\mu_0 = 0\\) and \\(\\mu_1 = 0.3\\), which satisfies \\(H_1: \\mu &gt; 0\\).\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0; mu1 &lt;- 0.3    # mu1 = 0.3 &gt; 0 = mu0\nsigma &lt;- 1; n &lt;- 50     # sd and sample size\nalpha &lt;- 0.05           # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)\nn_not_rej &lt;- 0\n\n# Repeat for 10000 times\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics\n  if (z &lt; z_alpha) n_not_rej &lt;- n_not_rej + 1  # count fail to reject\n}\n\n# Estimated beta\nn_not_rej / 10000\n\n[1] 0.317\n\n# Theoretical beta\npnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)\n\n[1] 0.316871\n\n\nSeem to be correct 💯"
+  },
+  {
+    "objectID": "teaching_demo.html#how-do-we-interpret-type-ii-error-rate",
+    "href": "teaching_demo.html#how-do-we-interpret-type-ii-error-rate",
+    "title": "Type I and II Errors",
+    "section": "How do we interpret Type II Error Rate?",
+    "text": "How do we interpret Type II Error Rate?\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_1: \\mu = 0.3\\) were true, there is a 31.7% chance that the HT procedure will lead to the conclusion of\n\n“Fail to reject \\(H_0\\)”"
+  },
+  {
+    "objectID": "teaching_demo.html#new-medication",
+    "href": "teaching_demo.html#new-medication",
+    "title": "Type I and II Errors",
+    "section": "New Medication 💊",
+    "text": "New Medication 💊\n\n\n\n\\(H_0\\): Ineffective\n\\(H_1\\): Effective\n\nType I error: ineffective drug labeled as effective\n  Pharma: profit 💲 📈\n  Patients: paid for placebo 😢\n\n\n\nType II error: effective drug labeled as ineffective\n  Pharma: financial trouble 💲 📉\n  Patients: missed better 💊\n\n Expensive 💊 \\(\\implies\\) Minimize \\(\\alpha\\)     Cheap 💊 \\(\\implies\\) Minimize \\(\\beta\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#new-medication-1",
+    "href": "teaching_demo.html#new-medication-1",
+    "title": "Type I and II Errors",
+    "section": "New Medication 💊",
+    "text": "New Medication 💊\n\n\n\n\\(H_0\\): Ineffective\n\\(H_1\\): Effective\n\nType I error: ineffective drug labeled as effective\n  Pharma: profit 💲 📈\n  Patients: paid for placebo 😢\n\n\n\nType II error: effective drug labeled as ineffective\n  Pharma: financial trouble 💲 📉\n  Patients: missed better 💊\n\n Expensive 💊 \\(\\implies\\) Minimize \\(\\alpha\\)     Cheap 💊 \\(\\implies\\) Minimize \\(\\beta\\) \n\n\n\n\\(H_0\\): Not toxic\n\\(H_1\\): Toxic\n\nType I error: safe drug labeled as toxic\n  Pharma: financial trouble 💲 📉\n  Patients: 😐\n\n\n\nType II error: toxic drug labeled as safe\n  Pharma: reputation 📉\n  Patients: 😵 😵 😵\n\nMinimize \\(\\beta\\)"
+  },
+  {
+    "objectID": "teaching_demo.html#recap",
+    "href": "teaching_demo.html#recap",
+    "title": "Type I and II Errors",
+    "section": "Recap",
+    "text": "Recap\n\n\nHT can yield incorrect conclusion!\n\\(P(\\text{Type I Error})\\) is always \\(\\alpha\\)\n\\(P(\\text{Type II Error})\\) or \\(\\beta\\) depends on many factors\n\n\\(\\alpha\\)\n\\(n\\) and \\(\\sigma\\)\n\\(\\mu_1\\): the actural value of \\(\\mu\\) under \\(H_1\\)\n\nTradeoff between \\(\\alpha\\) and \\(\\beta\\)\n\nContext-dependent\nPerspective-dependent\n\n\n\n\n\n\n\n\n\n\n\nPop Quiz\n\n\nWhat can we do to decrease \\(\\beta\\) ?\n\n\n\\(\\alpha \\uparrow\\)\n\\(n \\uparrow\\)\n\\(\\sigma \\downarrow\\) (sometimes…)"
+  }
+]
