@@ -36,10 +36,13 @@ library(ggplot2)
 <br>
 <br>
 
-::: {.incremental .large}
+::: {.large}
 - Undergraduate students
 - Diverse majors
-- Have seen **Hypothesis Test**
+- Have seen 
+  + **Normal distribution**
+  + **Hypothesis Test**
+  + Some coding experience (not strictly required)
 :::
 
 ## Overview
@@ -47,14 +50,14 @@ library(ggplot2)
 <br>
 
 ::: {.incremental .large}
-- Review of **hypothesis test** framework
+- Review of **Hypothesis Test** framework
 - Define **Type I \& Type II** errors
-- Derive probability of errors
+- Derive <span class="bold-red">probability of errors</span>
 - Discuss <span class="bold-red">error tradeoff</span>
 :::
 
 
-##
+## {auto-animate=true}
 ::: {.callout-note title="<span style='font-size: 2em; color: #4169E1;'>Hypothesis Test</span>"}
 ::: {.larger}
 The use of probability theory and statistics to decide <span class="bold-red">2 competing options</span> while recognizing the randomness of data.
@@ -94,13 +97,51 @@ The use of probability theory and statistics to decide <span class="bold-red">2 
 
 ::::
 
-## How do we decide? {.mid}
+
+## {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {.example}
+**New Medication** `r emo::ji("pill")`
+
+- $H_0$: Ineffective
+- $H_1$: Effective
+
+:::
+:::
+
+::: {.column width="50%"}
+::: {.example}
+**Criminal Trial** `r emo::ji("oncoming_police_car")`
+
+- $H_0$: Not guilty
+- $H_1$: Guilty
+
+:::
+:::
+
+::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Framework</span>" .large}
+
+::: {.incremental .large}
+- Presume $H_0$ is true
+- Collect data
+  + [<span class="bold-red">Unlikely data</span> under $H_0 \implies$ reject $H_0$]{.large}
+  + [Otherwise, we fail to reject $H_0$]{.large}
+:::
+
+:::
+
+::::
+
+## How do we decide? {.mid auto-animate=true}
 
 . . .
 
 Suppose $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)$, where $\sigma^2$ is known. Want to test
 
-$$H_0: \mu = \mu_0 \quad\text{vs} \quad H_1: \mu > \mu_0$$
+$$H_0: \mu = \mu_0 \quad\text{vs}\quad H_1: \mu > \mu_0$$
 at $\alpha$ level of significance (say $\alpha=0.05$).
 
 . . . 
@@ -109,11 +150,12 @@ at $\alpha$ level of significance (say $\alpha=0.05$).
 
 $$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \class{fragment}{\overset{H_0}\sim N(0, 1)}$$
 
-## How do we decide? {.mid visibility="uncounted"}
+
+## How do we decide? {.mid visibility="uncounted" auto-animate=true}
 
 Suppose $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)$, where $\sigma^2$ is known. Want to test
 
-$$H_0: \mu = \mu_0 \quad\text{vs} \quad H_1: \mu > \mu_0$$
+$$H_0: \mu = \mu_0 \quad\text{vs}\quad \class{green-box}{H_1: \mu > \mu_0}$$
 at $\alpha$ level of significance (say $\alpha=0.05$).
 
 **Test Statistics**
@@ -231,7 +273,7 @@ $z = 2.7$ is more likely to come from the <span class="bold-blue">blue distribut
 ::: {.larger}
 
 - [**Type I error**: Reject $H_0$ given $H_0$ is true]{.fragment fragment-index=3}
-- [**Type II error**: Fail to reject $H_0$ given $H_0$ is false]{.fragment fragment-index=4}
+- [**Type II error**: Fail to reject $H_0$ given $H_1$ is true]{.fragment fragment-index=4}
 
 :::
 
@@ -298,14 +340,14 @@ $$P(\text{Type I Error}) = \alpha \qquad \forall \, \text{HT}$$
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "4|5|6"
+#| code-line-numbers: "3,4|5|6,7"
 set.seed(123)
 
 # Initialize parameters
 mu0 <- 0               # H_0: mu = 0
 sigma <- 1; n <- 50    # sd and sample size
 alpha <- 0.05          # significance level
-z_alpha <- qnorm(alpha, lower.tail = F)
+z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.96
 n_rej <- 0
 ```
 
@@ -319,17 +361,17 @@ $$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "10,11,12|13|14"
+#| code-line-numbers: "10,11,12|13|8,14"
 set.seed(123)
 
 # Initialize parameters
 mu0 <- 0               # H_0: mu = 0
 sigma <- 1; n <- 50    # sd and sample size
 alpha <- 0.05          # significance level
-z_alpha <- qnorm(alpha, lower.tail = F)
+z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.96
 n_rej <- 0
 
-# Conduct HT for 10000 times
+# Conduct 10000 HT
 for (i in 1:10000) {
   x <- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)
   z <- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics
@@ -337,7 +379,7 @@ for (i in 1:10000) {
 }
 ```
 
-## {auto-animate=true visibility="uncounted"}
+## {auto-animate=true visibility="uncounted" .scrollable}
 
 ::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
 $$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
@@ -350,11 +392,11 @@ $$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
 set.seed(123)
 
 # Initialize parameters
-mu0 <- 0; sigma <- 1 # H_0: mu = 0
-n <- 50              # sample size
-alpha <- 0.05        # significance level
+mu0 <- 0               # H_0: mu = 0
+sigma <- 1; n <- 50    # sd and sample size
+alpha <- 0.05          # significance level
+z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.96
 n_rej <- 0
-z_alpha <- qnorm(alpha, lower.tail = F)
 
 # Conduct HT for 10000 times
 for (i in 1:10000) {
@@ -371,26 +413,26 @@ n_rej / 10000
 **Very close to $\alpha = 0.05$!**
 
 
-## How should we interpret Type I Error Rate?
+## How should we interpret $\alpha$?
 
 ::: {.callout-note title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>"}
 [If <span class="bold-green">$H_0: \mu = 0$ were true</span>, there is a 5\% chance that the HT procedure will lead to the conclusion of]{.fragment}
 
-<div class="fragment" style="text-align: center;">"Reject $H_0$"</div>
+<div class="fragment bold-red" style="text-align: center;">"Reject $H_0$"</div>
 :::
 
 ::: {.r-stack}
-![](type_I_error_1.png){.fragment .fade-in-then-out width="900" height="562"}
+![](type_I_error_1.png){.fragment .fade-in-then-out width="700" height="437.5"}
 
-![](type_I_error_2.png){.fragment width="900" height="562"}
+![](type_I_error_2.png){.fragment width="700" height="437.5"}
 :::
 
 
 
 
-## How likely is a Type II Error?
+## How likely is a Type II Error? {.mid}
 
-::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
+::: {.callout-tip title="<span style='font-size: 1em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
 $$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
 
 :::
@@ -400,8 +442,8 @@ $$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
 $$P(\text{Type II Error})= P(\underbrace{\text{fail to reject } H_0}_{(1)} \mid \underbrace{H_1 \text{ is true}}_{(2)})$$
 
 ::: {.incremental}
-1. When would we <span class="bold-red">``fail to reject $H_0$"</span> ? [$\implies$ <span class="red-box">$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} < z_\alpha$</span>]{.fragment}
-2. What does <span class="bold-red">``$H_1$ is true"</span> mean? [$\implies$ <span class="green-box">$\mu = \mu_1$</span>, where $\mu_1$ is a number $> \mu_0$]{.fragment}
+1. When would we <span class="bold-red">"fail to reject $H_0$"</span> ? [$\implies$ <span class="red-box">$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} < z_\alpha$</span>]{.fragment}
+2. What does <span class="bold-red">"$H_1$ is true"</span> mean? [$\implies$ <span class="green-box">$\mu = \mu_1$</span>, where $\mu_1$ is a number $> \mu_0$]{.fragment}
 <div class="centered-fragment fragment">
   <span class="green-box">$$\frac{\bar{X} - \mu_1}{\sigma/\sqrt{n}} \overset{H_1}{\sim} N(0, 1)$$</span>
 </div>
@@ -433,7 +475,7 @@ Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "4|5|6"
+#| code-line-numbers: "3,4|5|6,7"
 set.seed(123)
 
 # Initialize parameters
@@ -449,7 +491,7 @@ Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
 
 ```{r}
 #| echo: true
-#| code-line-numbers: "10,11,12|13|14"
+#| code-line-numbers: "10,11,12|13|8,14"
 set.seed(123)
 
 # Initialize parameters
@@ -459,7 +501,7 @@ alpha <- 0.05           # significance level
 z_alpha <- qnorm(alpha, lower.tail = F)
 n_not_rej <- 0
 
-# Repeat for 10000 times
+# Conduct 10000 HT
 for (i in 1:10000) {
   x <- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)
   z <- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics
@@ -467,7 +509,7 @@ for (i in 1:10000) {
 }
 ```
 
-## {auto-animate=true}
+## {auto-animate=true .scrollable}
 Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
 
 ```{r}
@@ -482,7 +524,7 @@ alpha <- 0.05           # significance level
 z_alpha <- qnorm(alpha, lower.tail = F)
 n_not_rej <- 0
 
-# Repeat for 10000 times
+# Conduct 10000 HT
 for (i in 1:10000) {
   x <- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)
   z <- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics
@@ -494,7 +536,7 @@ n_not_rej / 10000
 ```
 
 
-## {auto-animate=true}
+## {auto-animate=true .scrollable}
 Let's assume $\mu_0 = 0$ and $\mu_1 = 0.3$, which satisfies $H_1: \mu > 0$.
 
 ```{r}
@@ -509,7 +551,7 @@ alpha <- 0.05           # significance level
 z_alpha <- qnorm(alpha, lower.tail = F)
 n_not_rej <- 0
 
-# Repeat for 10000 times
+# Conduct 10000 HT
 for (i in 1:10000) {
   x <- rnorm(n, mu1, sigma)                    # H_1 is true: X ~ N(0.3, 1)
   z <- (mean(x) - mu0) / (sigma / sqrt(n))     # observed test statistics
@@ -524,23 +566,23 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 ```
 
 
-#### Seem to be correct `r emo::ji("100")`
+#### Seems correct! `r emo::ji("100")`
 
 
-## How do we interpret Type II Error Rate?
+## How do we interpret $\beta$?
 
 ::: {.callout-note title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>"}
-[If <span class="bold-green">$H_1: \mu = 0.3$ were true</span>, there is a 31.7\% chance that the HT procedure will lead to the conclusion of]{.fragment}
+[If <span class="bold-green">$H_1: \mu = 0.3$ were true</span>, there is a <span class="bold-red">31.7\%</span> chance that the HT procedure will lead to the conclusion of]{.fragment}
 
-<div class="fragment" style="text-align: center;">"Fail to reject $H_0$"</div>
+<div class="fragment bold-red" style="text-align: center;">"Fail to reject $H_0$"</div>
 :::
 
 ::: {.r-stack}
-![](type_I_error_1.png){.fragment .fade-in-then-out width="900" height="562"}
+![](type_I_error_1.png){.fragment .fade-in-then-out width="700" height="437.5"}
 
-![](type_II_error_1.png){.fragment .fade-in-then-out width="900" height="562"}
+![](type_II_error_1.png){.fragment .fade-in-then-out width="700" height="437.5"}
 
-![](type_II_error_2.png){.fragment width="900" height="562"}
+![](type_II_error_2.png){.fragment width="700" height="437.5"}
 :::
 
 
@@ -560,9 +602,8 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 
 # Which should we minimize?
 
-::: {.slide-reduce-margin}
 
-## New Medication `r emo::ji("pill")` 
+## New Medication `r emo::ji("pill")` {.midd}
 
 :::: {.columns}
 
@@ -603,12 +644,10 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 
 ::::
 
-:::
 
 
-::: {.slide-reduce-margin}
 
-## New Medication `r emo::ji("pill")` 
+## New Medication `r emo::ji("pill")` {.midd}
 
 :::: {.columns}
 
@@ -653,10 +692,13 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 
 [&emsp;&emsp;<span class="bold-blue">Patients</span>: `r emo::ji("neutral_face")`]{.fragment}
 
-::: {style="margin-bottom: 1em;"}
+::: {style="margin-bottom: 2em;"}
 :::
 
 [**Type II error**:]{.fragment} [toxic drug labeled as safe]{.fragment}
+
+::: {style="margin-bottom: 1em;"}
+:::
 
 [&emsp;&emsp;<span class="bold-red">Pharma</span>: reputation `r emo::ji("chart_with_downwards_trend")`]{.fragment}
 
@@ -669,7 +711,6 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 
 ::::
 
-:::
 
 
 ## Recap
@@ -680,7 +721,7 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 - $P(\text{Type II Error})$ or $\beta$ depends on many factors
   + $\alpha$
   + $n$ and $\sigma$
-  + $\mu_1$: the actural value of $\mu$ under $H_1$
+  + $\mu_1$: the presume value of $\mu$ under $H_1$
 - <span class="bold-red">Tradeoff between $\alpha$ and $\beta$</span>
   + Context-dependent
   + Perspective-dependent
@@ -688,6 +729,7 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 
 . . . 
 
+<!--
 ::: {.callout-caution title="<span style='font-size: 1.5em; color: #B8860B;'>Pop Quiz</span>" .large}
 What can we do to decrease $\beta$ ?
 
@@ -697,3 +739,56 @@ What can we do to decrease $\beta$ ?
 - $\sigma \downarrow$ (sometimes...)
 :::
 :::
+-->
+
+<!--
+# Bonus Topics  `r emo::ji("star_struck")` {visibility="uncounted"}
+
+## Symbolic Regression (SR) {visibility="uncounted"}
+
+::: {.callout-note title="Definition"}
+Given observed data $y$ and $x_1, x_2, \ldots, x_p,$ we want to find an <span class="bold-red">explicit formula $f$</span> such that
+$$y = f(x_1, x_2, \ldots, x_p)$$
+:::
+
+::: {.callout-tip title="Example" .fragment fragment-index=1}
+Say we are physicists and are interested in finding the relationship between <span class="bold-red">$F=$ gravitational force between 2 objects</span>, and
+
+:::: {.columns}
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+- $m_j=$ mass of object $j$
+- $a_j=$ surface area of object $j$
+- $T_j=$ temperature of object $j$
+:::
+
+::: {.column width="40%"}
+- $v_j=$ velocity of object $j$
+- $r=$ distance between the two objects
+- $\ldots$
+:::
+
+::::
+
+using observation data $(F, m_1, m_2, a_1, a_2, \ldots)$. [SR aims to <span class="bold-red">re-discover</span> the Newton's Law of Universal Gravitation]{.fragment fragment-index=2}
+
+::: {.fragment fragment-index=2}
+$$F = f(m_1,m_2,r) = 6.674 \times 10^{-11} \cdot \frac{m_1m_2}{r^2}$$
+:::
+
+:::
+
+
+::: {.callout-warning title="How?" .fragment fragment-index=3}
+Use simple mathematical operators to construct **formulas** $f_1, f_2, \ldots$
+
+- Operators $\mathcal{O} = \{+, -, \times, \div, \exp, \log, \cdot^2, \sqrt{\cdot}, \sin, \cos\}$
+- 
+
+:::
+-->
+
+

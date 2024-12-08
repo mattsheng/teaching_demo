@@ -94,7 +94,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-37659d0fbd8a67acfed1aa0a392cd036.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-bdbddc60bea0d87761f4bda6bcb40716.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -222,9 +222,14 @@ Shengbin Ye
 <p><br> <br></p>
 <div class="large">
 <ul>
-<li class="fragment">Undergraduate students</li>
-<li class="fragment">Diverse majors</li>
-<li class="fragment">Have seen <strong>Hypothesis Test</strong></li>
+<li>Undergraduate students</li>
+<li>Diverse majors</li>
+<li>Have seen
+<ul>
+<li><strong>Normal distribution</strong></li>
+<li><strong>Hypothesis Test</strong></li>
+<li>Some coding experience (not strictly required)</li>
+</ul></li>
 </ul>
 </div>
 </section>
@@ -233,15 +238,15 @@ Shengbin Ye
 <p><br> <br></p>
 <div class="large">
 <ul>
-<li class="fragment">Review of <strong>hypothesis test</strong> framework</li>
+<li class="fragment">Review of <strong>Hypothesis Test</strong> framework</li>
 <li class="fragment">Define <strong>Type I &amp; Type II</strong> errors</li>
-<li class="fragment">Derive probability of errors</li>
+<li class="fragment">Derive <span class="bold-red">probability of errors</span></li>
 <li class="fragment">Discuss <span class="bold-red">error tradeoff</span></li>
 </ul>
 </div>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="section" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
 <div title="<span style='font-size: 2em; color: #4169E1;'>Hypothesis Test</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -288,21 +293,66 @@ Shengbin Ye
 </div>
 </div></div>
 </section>
-<section id="how-do-we-decide" class="slide level2 mid">
-<h2>How do we decide?</h2>
+<section id="section-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="example">
+<p><strong>New Medication</strong> 💊</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: Ineffective</li>
+<li><span class="math inline">\(H_1\)</span>: Effective</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="example">
+<p><strong>Criminal Trial</strong> 🚔</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: Not guilty</li>
+<li><span class="math inline">\(H_1\)</span>: Guilty</li>
+</ul>
+</div>
+</div><div class="large" title="<span style='font-size: 1.5em; color: #44745A;'>Framework</span>">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span style="font-size: 1.5em; color: #44745A;">Framework</span></strong></p>
+</div>
+<div class="callout-content">
+<div class="large">
+<ul>
+<li class="fragment">Presume <span class="math inline">\(H_0\)</span> is true</li>
+<li class="fragment">Collect data
+<ul>
+<li class="fragment"><span class="large"><span class="bold-red">Unlikely data</span> under <span class="math inline">\(H_0 \implies\)</span> reject <span class="math inline">\(H_0\)</span></span></li>
+<li class="fragment"><span class="large">Otherwise, we fail to reject <span class="math inline">\(H_0\)</span></span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-do-we-decide" class="slide level2 mid" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">How do we decide?</h2>
 <div class="fragment">
 <p>Suppose <span class="math inline">\(X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)\)</span>, where <span class="math inline">\(\sigma^2\)</span> is known. Want to test</p>
-<p><span class="math display">\[H_0: \mu = \mu_0 \quad\text{vs} \quad H_1: \mu &gt; \mu_0\]</span> at <span class="math inline">\(\alpha\)</span> level of significance (say <span class="math inline">\(\alpha=0.05\)</span>).</p>
+<p><span class="math display">\[H_0: \mu = \mu_0 \quad\text{vs}\quad H_1: \mu &gt; \mu_0\]</span> at <span class="math inline">\(\alpha\)</span> level of significance (say <span class="math inline">\(\alpha=0.05\)</span>).</p>
 </div>
 <div class="fragment">
 <p><strong>Test Statistics</strong></p>
 <p><span class="math display">\[Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \class{fragment}{\overset{H_0}\sim N(0, 1)}\]</span></p>
 </div>
 </section>
-<section id="how-do-we-decide-1" class="slide level2 mid" data-visibility="uncounted">
-<h2>How do we decide?</h2>
+<section id="how-do-we-decide-1" class="slide level2 mid" data-visibility="uncounted" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">How do we decide?</h2>
 <p>Suppose <span class="math inline">\(X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)\)</span>, where <span class="math inline">\(\sigma^2\)</span> is known. Want to test</p>
-<p><span class="math display">\[H_0: \mu = \mu_0 \quad\text{vs} \quad H_1: \mu &gt; \mu_0\]</span> at <span class="math inline">\(\alpha\)</span> level of significance (say <span class="math inline">\(\alpha=0.05\)</span>).</p>
+<p><span class="math display">\[H_0: \mu = \mu_0 \quad\text{vs}\quad \class{green-box}{H_1: \mu &gt; \mu_0}\]</span> at <span class="math inline">\(\alpha\)</span> level of significance (say <span class="math inline">\(\alpha=0.05\)</span>).</p>
 <p><strong>Test Statistics</strong></p>
 <p><span class="math display">\[Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \overset{H_0}\sim N(0, 1)\]</span></p>
 <p><strong>Decision Rule</strong></p>
@@ -384,7 +434,7 @@ Shengbin Ye
 <div class="larger">
 <ul>
 <li><span class="fragment" data-fragment-index="3"><strong>Type I error</strong>: Reject <span class="math inline">\(H_0\)</span> given <span class="math inline">\(H_0\)</span> is true</span></li>
-<li><span class="fragment" data-fragment-index="4"><strong>Type II error</strong>: Fail to reject <span class="math inline">\(H_0\)</span> given <span class="math inline">\(H_0\)</span> is false</span></li>
+<li><span class="fragment" data-fragment-index="4"><strong>Type II error</strong>: Fail to reject <span class="math inline">\(H_0\)</span> given <span class="math inline">\(H_1\)</span> is true</span></li>
 </ul>
 </div>
 </div>
@@ -450,7 +500,7 @@ Shengbin Ye
 <h1>Let’s verify this!</h1>
 
 </section>
-<section id="section-1" class="slide level2" data-auto-animate="true">
+<section id="section-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -469,50 +519,15 @@ Shengbin Ye
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="4|5|6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="3,4|5|6,7"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb1-2" class="hljs-ln-code"><a></a></span>
 <span id="cb1-3" class="hljs-ln-code"><a></a><span class="co"># Initialize parameters</span></span>
 <span id="cb1-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>               <span class="co"># H_0: mu = 0</span></span>
 <span id="cb1-5" class="hljs-ln-code"><a></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span>; n <span class="ot">&lt;-</span> <span class="dv">50</span>    <span class="co"># sd and sample size</span></span>
 <span id="cb1-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>          <span class="co"># significance level</span></span>
-<span id="cb1-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)</span>
+<span id="cb1-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.96</span></span>
 <span id="cb1-8" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section id="section-2" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
-<h2 data-id="quarto-animate-title"></h2>
-<div title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong><span style="font-size: 1.5em; color: #44745A;">Rejection Rule for <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span></span></strong></p>
-</div>
-<div class="callout-content">
-<p><span class="math display">\[z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="10,11,12|13|14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2-2" class="hljs-ln-code"><a></a></span>
-<span id="cb2-3" class="hljs-ln-code"><a></a><span class="co"># Initialize parameters</span></span>
-<span id="cb2-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>               <span class="co"># H_0: mu = 0</span></span>
-<span id="cb2-5" class="hljs-ln-code"><a></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span>; n <span class="ot">&lt;-</span> <span class="dv">50</span>    <span class="co"># sd and sample size</span></span>
-<span id="cb2-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>          <span class="co"># significance level</span></span>
-<span id="cb2-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)</span>
-<span id="cb2-8" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb2-9" class="hljs-ln-code"><a></a></span>
-<span id="cb2-10" class="hljs-ln-code"><a></a><span class="co"># Conduct HT for 10000 times</span></span>
-<span id="cb2-11" class="hljs-ln-code"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
-<span id="cb2-12" class="hljs-ln-code"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, mu0, sigma)                <span class="co"># H_0 is true: X ~ N(0,1)</span></span>
-<span id="cb2-13" class="hljs-ln-code"><a></a>  z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> mu0) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)) <span class="co"># observed test statistics</span></span>
-<span id="cb2-14" class="hljs-ln-code"><a></a>  <span class="cf">if</span> (z <span class="sc">&gt;=</span> z_alpha) n_rej <span class="ot">&lt;-</span> n_rej <span class="sc">+</span> <span class="dv">1</span>     <span class="co"># count rejections</span></span>
-<span id="cb2-15" class="hljs-ln-code"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-3" class="slide level2" data-auto-animate="true" data-visibility="uncounted">
@@ -533,14 +548,49 @@ Shengbin Ye
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="10,11,12|13|8,14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-2" class="hljs-ln-code"><a></a></span>
+<span id="cb2-3" class="hljs-ln-code"><a></a><span class="co"># Initialize parameters</span></span>
+<span id="cb2-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>               <span class="co"># H_0: mu = 0</span></span>
+<span id="cb2-5" class="hljs-ln-code"><a></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span>; n <span class="ot">&lt;-</span> <span class="dv">50</span>    <span class="co"># sd and sample size</span></span>
+<span id="cb2-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>          <span class="co"># significance level</span></span>
+<span id="cb2-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.96</span></span>
+<span id="cb2-8" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-9" class="hljs-ln-code"><a></a></span>
+<span id="cb2-10" class="hljs-ln-code"><a></a><span class="co"># Conduct 10000 HT</span></span>
+<span id="cb2-11" class="hljs-ln-code"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb2-12" class="hljs-ln-code"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, mu0, sigma)                <span class="co"># H_0 is true: X ~ N(0,1)</span></span>
+<span id="cb2-13" class="hljs-ln-code"><a></a>  z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> mu0) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n)) <span class="co"># observed test statistics</span></span>
+<span id="cb2-14" class="hljs-ln-code"><a></a>  <span class="cf">if</span> (z <span class="sc">&gt;=</span> z_alpha) n_rej <span class="ot">&lt;-</span> n_rej <span class="sc">+</span> <span class="dv">1</span>     <span class="co"># count rejections</span></span>
+<span id="cb2-15" class="hljs-ln-code"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="section-4" class="slide level2 scrollable" data-auto-animate="true" data-visibility="uncounted">
+<h2 data-id="quarto-animate-title"></h2>
+<div title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span style="font-size: 1.5em; color: #44745A;">Rejection Rule for <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span></span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="17,18"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb3-2" class="hljs-ln-code"><a></a></span>
 <span id="cb3-3" class="hljs-ln-code"><a></a><span class="co"># Initialize parameters</span></span>
-<span id="cb3-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>; sigma <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># H_0: mu = 0</span></span>
-<span id="cb3-5" class="hljs-ln-code"><a></a>n <span class="ot">&lt;-</span> <span class="dv">50</span>              <span class="co"># sample size</span></span>
-<span id="cb3-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>        <span class="co"># significance level</span></span>
-<span id="cb3-7" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb3-8" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)</span>
+<span id="cb3-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>               <span class="co"># H_0: mu = 0</span></span>
+<span id="cb3-5" class="hljs-ln-code"><a></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span>; n <span class="ot">&lt;-</span> <span class="dv">50</span>    <span class="co"># sd and sample size</span></span>
+<span id="cb3-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>          <span class="co"># significance level</span></span>
+<span id="cb3-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.96</span></span>
+<span id="cb3-8" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb3-9" class="hljs-ln-code"><a></a></span>
 <span id="cb3-10" class="hljs-ln-code"><a></a><span class="co"># Conduct HT for 10000 times</span></span>
 <span id="cb3-11" class="hljs-ln-code"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
@@ -557,8 +607,8 @@ Shengbin Ye
 </div>
 <p><strong>Very close to <span class="math inline">\(\alpha = 0.05\)</span>!</strong></p>
 </section>
-<section id="how-should-we-interpret-type-i-error-rate" class="slide level2">
-<h2>How should we interpret Type I Error Rate?</h2>
+<section id="how-should-we-interpret-alpha" class="slide level2">
+<h2>How should we interpret <span class="math inline">\(\alpha\)</span>?</h2>
 <div title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -570,7 +620,7 @@ Shengbin Ye
 </div>
 <div class="callout-content">
 <p><span class="fragment">If <span class="bold-green"><span class="math inline">\(H_0: \mu = 0\)</span> were true</span>, there is a 5% chance that the HT procedure will lead to the conclusion of</span></p>
-<div class="fragment" style="text-align: center;">
+<div class="fragment bold-red" style="text-align: center;">
 “Reject <span class="math inline">\(H_0\)</span>”
 </div>
 </div>
@@ -578,20 +628,20 @@ Shengbin Ye
 </div>
 </div>
 <div class="r-stack">
-<p><img data-src="type_I_error_1.png" class="fragment fade-in-then-out" width="900" height="562"></p>
-<p><img data-src="type_I_error_2.png" class="fragment" width="900" height="562"></p>
+<p><img data-src="type_I_error_1.png" class="fragment fade-in-then-out" width="700" height="437"></p>
+<p><img data-src="type_I_error_2.png" class="fragment" width="700" height="437"></p>
 </div>
 </section>
-<section id="how-likely-is-a-type-ii-error" class="slide level2">
+<section id="how-likely-is-a-type-ii-error" class="slide level2 mid">
 <h2>How likely is a Type II Error?</h2>
-<div title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>">
+<div title="<span style='font-size: 1em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong><span style="font-size: 1.5em; color: #44745A;">Rejection Rule for <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span></span></strong></p>
+<p><strong><span style="font-size: 1em; color: #44745A;">Rejection Rule for <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span></span></strong></p>
 </div>
 <div class="callout-content">
 <p><span class="math display">\[z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}\]</span></p>
@@ -603,8 +653,8 @@ Shengbin Ye
 <p><span class="math display">\[P(\text{Type II Error})= P(\underbrace{\text{fail to reject } H_0}_{(1)} \mid \underbrace{H_1 \text{ is true}}_{(2)})\]</span></p>
 <div>
 <ol type="1">
-<li class="fragment">When would we <span class="bold-red">``fail to reject <span class="math inline">\(H_0\)</span>“</span> ? <span class="fragment"><span class="math inline">\(\implies\)</span> <span class="red-box"><span class="math inline">\(z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} &lt; z_\alpha\)</span></span></span></li>
-<li class="fragment">What does <span class="bold-red">``<span class="math inline">\(H_1\)</span> is true”</span> mean? <span class="fragment"><span class="math inline">\(\implies\)</span> <span class="green-box"><span class="math inline">\(\mu = \mu_1\)</span></span>, where <span class="math inline">\(\mu_1\)</span> is a number <span class="math inline">\(&gt; \mu_0\)</span></span>
+<li class="fragment">When would we <span class="bold-red">“fail to reject <span class="math inline">\(H_0\)</span>”</span> ? <span class="fragment"><span class="math inline">\(\implies\)</span> <span class="red-box"><span class="math inline">\(z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} &lt; z_\alpha\)</span></span></span></li>
+<li class="fragment">What does <span class="bold-red">“<span class="math inline">\(H_1\)</span> is true”</span> mean? <span class="fragment"><span class="math inline">\(\implies\)</span> <span class="green-box"><span class="math inline">\(\mu = \mu_1\)</span></span>, where <span class="math inline">\(\mu_1\)</span> is a number <span class="math inline">\(&gt; \mu_0\)</span></span>
 <div class="centered-fragment fragment">
 <p><span class="green-box"><span class="math display">\[\frac{\bar{X} - \mu_1}{\sigma/\sqrt{n}} \overset{H_1}{\sim} N(0, 1)\]</span></span></p>
 </div></li>
@@ -634,11 +684,11 @@ Shengbin Ye
 <h1>Was my math correct?</h1>
 
 </section>
-<section id="section-4" class="slide level2" data-auto-animate="true">
+<section id="section-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>Let’s assume <span class="math inline">\(\mu_0 = 0\)</span> and <span class="math inline">\(\mu_1 = 0.3\)</span>, which satisfies <span class="math inline">\(H_1: \mu &gt; 0\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="4|5|6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="3,4|5|6,7"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb5-2" class="hljs-ln-code"><a></a></span>
 <span id="cb5-3" class="hljs-ln-code"><a></a><span class="co"># Initialize parameters</span></span>
 <span id="cb5-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>; mu1 <span class="ot">&lt;-</span> <span class="fl">0.3</span>    <span class="co"># mu1 = 0.3 &gt; 0 = mu0</span></span>
@@ -648,11 +698,11 @@ Shengbin Ye
 <span id="cb5-8" class="hljs-ln-code"><a></a>n_not_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-5" class="slide level2" data-auto-animate="true">
+<section id="section-6" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>Let’s assume <span class="math inline">\(\mu_0 = 0\)</span> and <span class="math inline">\(\mu_1 = 0.3\)</span>, which satisfies <span class="math inline">\(H_1: \mu &gt; 0\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="10,11,12|13|14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="10,11,12|13|8,14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb6-2" class="hljs-ln-code"><a></a></span>
 <span id="cb6-3" class="hljs-ln-code"><a></a><span class="co"># Initialize parameters</span></span>
 <span id="cb6-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>; mu1 <span class="ot">&lt;-</span> <span class="fl">0.3</span>    <span class="co"># mu1 = 0.3 &gt; 0 = mu0</span></span>
@@ -661,7 +711,7 @@ Shengbin Ye
 <span id="cb6-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)</span>
 <span id="cb6-8" class="hljs-ln-code"><a></a>n_not_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb6-9" class="hljs-ln-code"><a></a></span>
-<span id="cb6-10" class="hljs-ln-code"><a></a><span class="co"># Repeat for 10000 times</span></span>
+<span id="cb6-10" class="hljs-ln-code"><a></a><span class="co"># Conduct 10000 HT</span></span>
 <span id="cb6-11" class="hljs-ln-code"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
 <span id="cb6-12" class="hljs-ln-code"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, mu1, sigma)                    <span class="co"># H_1 is true: X ~ N(0.3, 1)</span></span>
 <span id="cb6-13" class="hljs-ln-code"><a></a>  z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> mu0) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n))     <span class="co"># observed test statistics</span></span>
@@ -669,7 +719,7 @@ Shengbin Ye
 <span id="cb6-15" class="hljs-ln-code"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-6" class="slide level2" data-auto-animate="true">
+<section id="section-7" class="slide level2 scrollable" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>Let’s assume <span class="math inline">\(\mu_0 = 0\)</span> and <span class="math inline">\(\mu_1 = 0.3\)</span>, which satisfies <span class="math inline">\(H_1: \mu &gt; 0\)</span>.</p>
 <div class="cell">
@@ -682,7 +732,7 @@ Shengbin Ye
 <span id="cb7-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)</span>
 <span id="cb7-8" class="hljs-ln-code"><a></a>n_not_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb7-9" class="hljs-ln-code"><a></a></span>
-<span id="cb7-10" class="hljs-ln-code"><a></a><span class="co"># Repeat for 10000 times</span></span>
+<span id="cb7-10" class="hljs-ln-code"><a></a><span class="co"># Conduct 10000 HT</span></span>
 <span id="cb7-11" class="hljs-ln-code"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
 <span id="cb7-12" class="hljs-ln-code"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, mu1, sigma)                    <span class="co"># H_1 is true: X ~ N(0.3, 1)</span></span>
 <span id="cb7-13" class="hljs-ln-code"><a></a>  z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> mu0) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n))     <span class="co"># observed test statistics</span></span>
@@ -696,7 +746,7 @@ Shengbin Ye
 </div>
 </div>
 </section>
-<section id="section-7" class="slide level2" data-auto-animate="true">
+<section id="section-8" class="slide level2 scrollable" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>Let’s assume <span class="math inline">\(\mu_0 = 0\)</span> and <span class="math inline">\(\mu_1 = 0.3\)</span>, which satisfies <span class="math inline">\(H_1: \mu &gt; 0\)</span>.</p>
 <div class="cell">
@@ -709,7 +759,7 @@ Shengbin Ye
 <span id="cb9-7"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)</span>
 <span id="cb9-8"><a></a>n_not_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb9-9"><a></a></span>
-<span id="cb9-10"><a></a><span class="co"># Repeat for 10000 times</span></span>
+<span id="cb9-10"><a></a><span class="co"># Conduct 10000 HT</span></span>
 <span id="cb9-11"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
 <span id="cb9-12"><a></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, mu1, sigma)                    <span class="co"># H_1 is true: X ~ N(0.3, 1)</span></span>
 <span id="cb9-13"><a></a>  z <span class="ot">&lt;-</span> (<span class="fu">mean</span>(x) <span class="sc">-</span> mu0) <span class="sc">/</span> (sigma <span class="sc">/</span> <span class="fu">sqrt</span>(n))     <span class="co"># observed test statistics</span></span>
@@ -727,10 +777,10 @@ Shengbin Ye
 <pre><code>[1] 0.316871</code></pre>
 </div>
 </div>
-<h4 id="seem-to-be-correct">Seem to be correct 💯</h4>
+<h4 id="seems-correct">Seems correct! 💯</h4>
 </section>
-<section id="how-do-we-interpret-type-ii-error-rate" class="slide level2">
-<h2>How do we interpret Type II Error Rate?</h2>
+<section id="how-do-we-interpret-beta" class="slide level2">
+<h2>How do we interpret <span class="math inline">\(\beta\)</span>?</h2>
 <div title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -741,8 +791,8 @@ Shengbin Ye
 <p><strong><span style="font-size: 1.3em; color: #0078D7;">Interpretation</span></strong></p>
 </div>
 <div class="callout-content">
-<p><span class="fragment">If <span class="bold-green"><span class="math inline">\(H_1: \mu = 0.3\)</span> were true</span>, there is a 31.7% chance that the HT procedure will lead to the conclusion of</span></p>
-<div class="fragment" style="text-align: center;">
+<p><span class="fragment">If <span class="bold-green"><span class="math inline">\(H_1: \mu = 0.3\)</span> were true</span>, there is a <span class="bold-red">31.7%</span> chance that the HT procedure will lead to the conclusion of</span></p>
+<div class="fragment bold-red" style="text-align: center;">
 “Fail to reject <span class="math inline">\(H_0\)</span>”
 </div>
 </div>
@@ -750,9 +800,9 @@ Shengbin Ye
 </div>
 </div>
 <div class="r-stack">
-<p><img data-src="type_I_error_1.png" class="fragment fade-in-then-out" width="900" height="562"></p>
-<p><img data-src="type_II_error_1.png" class="fragment fade-in-then-out" width="900" height="562"></p>
-<p><img data-src="type_II_error_2.png" class="fragment" width="900" height="562"></p>
+<p><img data-src="type_I_error_1.png" class="fragment fade-in-then-out" width="700" height="437"></p>
+<p><img data-src="type_II_error_1.png" class="fragment fade-in-then-out" width="700" height="437"></p>
+<p><img data-src="type_II_error_2.png" class="fragment" width="700" height="437"></p>
 </div>
 </section></section>
 <section>
@@ -760,7 +810,7 @@ Shengbin Ye
 <h1>Can we minimize both <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>?</h1>
 
 </section>
-<section id="section-8" class="slide level2">
+<section id="section-9" class="slide level2">
 <h2></h2>
 <div style="position: relative; padding-bottom: 65%; height: 0; overflow: hidden;">
 <p><iframe src="https://www.desmos.com/calculator/x3b1y5xlll" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"> </iframe></p>
@@ -771,7 +821,7 @@ Shengbin Ye
 <h1>Which should we minimize?</h1>
 
 </section>
-<section id="new-medication" class="slide level2 slide-reduce-margin">
+<section id="new-medication" class="slide level2 midd">
 <h2>New Medication 💊</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -795,7 +845,7 @@ Shengbin Ye
 
 </div></div>
 </section>
-<section id="new-medication-1" class="slide level2 slide-reduce-margin">
+<section id="new-medication-1" class="slide level2 midd">
 <h2>New Medication 💊</h2>
 <div class="columns">
 <div class="column" style="opacity: 0.5;">
@@ -823,10 +873,13 @@ Shengbin Ye
 <p><span class="fragment"><strong>Type I error</strong>:</span> <span class="fragment">safe drug labeled as toxic</span></p>
 <p><span class="fragment">  <span class="bold-red">Pharma</span>: financial trouble 💲 📉</span></p>
 <p><span class="fragment">  <span class="bold-blue">Patients</span>: 😐</span></p>
-<div style="margin-bottom: 1em;">
+<div style="margin-bottom: 2em;">
 
 </div>
 <p><span class="fragment"><strong>Type II error</strong>:</span> <span class="fragment">toxic drug labeled as safe</span></p>
+<div style="margin-bottom: 1em;">
+
+</div>
 <p><span class="fragment">  <span class="bold-red">Pharma</span>: reputation 📉</span></p>
 <p><span class="fragment">  <span class="bold-blue">Patients</span>: 😵 😵 😵</span></p>
 <div class="centered-fragment fragment">
@@ -844,7 +897,7 @@ Shengbin Ye
 <ul>
 <li class="fragment"><span class="math inline">\(\alpha\)</span></li>
 <li class="fragment"><span class="math inline">\(n\)</span> and <span class="math inline">\(\sigma\)</span></li>
-<li class="fragment"><span class="math inline">\(\mu_1\)</span>: the actural value of <span class="math inline">\(\mu\)</span> under <span class="math inline">\(H_1\)</span></li>
+<li class="fragment"><span class="math inline">\(\mu_1\)</span>: the presume value of <span class="math inline">\(\mu\)</span> under <span class="math inline">\(H_1\)</span></li>
 </ul></li>
 <li class="fragment"><span class="bold-red">Tradeoff between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span></span>
 <ul>
@@ -854,28 +907,66 @@ Shengbin Ye
 </ul>
 </div>
 <div class="fragment">
-<div class="large" title="<span style='font-size: 1.5em; color: #B8860B;'>Pop Quiz</span>">
-<div class="callout callout-caution callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong><span style="font-size: 1.5em; color: #B8860B;">Pop Quiz</span></strong></p>
-</div>
-<div class="callout-content">
-<p>What can we do to decrease <span class="math inline">\(\beta\)</span> ?</p>
-<div class="fragment">
-<ul>
-<li><span class="math inline">\(\alpha \uparrow\)</span></li>
-<li><span class="math inline">\(n \uparrow\)</span></li>
-<li><span class="math inline">\(\sigma \downarrow\)</span> (sometimes…)</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!--
+::: {.callout-caution title="<span style='font-size: 1.5em; color: #B8860B;'>Pop Quiz</span>" .large}
+What can we do to decrease $\beta$ ?
+
+::: {.fragment}
+- $\alpha \uparrow$
+- $n \uparrow$
+- $\sigma \downarrow$ (sometimes...)
+:::
+:::
+-->
+<!--
+# Bonus Topics  🤩 {visibility="uncounted"}
+
+## Symbolic Regression (SR) {visibility="uncounted"}
+
+::: {.callout-note title="Definition"}
+Given observed data $y$ and $x_1, x_2, \ldots, x_p,$ we want to find an <span class="bold-red">explicit formula $f$</span> such that
+$$y = f(x_1, x_2, \ldots, x_p)$$
+:::
+
+::: {.callout-tip title="Example" .fragment fragment-index=1}
+Say we are physicists and are interested in finding the relationship between <span class="bold-red">$F=$ gravitational force between 2 objects</span>, and
+
+:::: {.columns}
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+- $m_j=$ mass of object $j$
+- $a_j=$ surface area of object $j$
+- $T_j=$ temperature of object $j$
+:::
+
+::: {.column width="40%"}
+- $v_j=$ velocity of object $j$
+- $r=$ distance between the two objects
+- $\ldots$
+:::
+
+::::
+
+using observation data $(F, m_1, m_2, a_1, a_2, \ldots)$. [SR aims to <span class="bold-red">re-discover</span> the Newton's Law of Universal Gravitation]{.fragment fragment-index=2}
+
+::: {.fragment fragment-index=2}
+$$F = f(m_1,m_2,r) = 6.674 \times 10^{-11} \cdot \frac{m_1m_2}{r^2}$$
+:::
+
+:::
+
+
+::: {.callout-warning title="How?" .fragment fragment-index=3}
+Use simple mathematical operators to construct **formulas** $f_1, f_2, \ldots$
+
+- Operators $\mathcal{O} = \{+, -, \times, \div, \exp, \log, \cdot^2, \sqrt{\cdot}, \sin, \cos\}$
+- 
+
+:::
+-->
 
 
 </div>
