@@ -32,21 +32,21 @@
     "href": "teaching_demo.html#how-do-we-decide",
     "title": "Type I and II Errors",
     "section": "How do we decide?",
-    "text": "How do we decide?\n\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs}\\quad H_1: \\mu &gt; \\mu_0\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\n\n\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\class{fragment}{\\overset{H_0}\\sim N(0, 1)}\\]"
+    "text": "How do we decide?\n\n\nLet’s take 1-sample Z-test as an example\nhold for other HT\nIn order to determine whether our observations make sence under H_0\nwe need to know what’s normal under H_0\nTo this end, we will need something called the Test Stat\nThe null distribution of Test Stat can help us determine what’s normal and what isn’t\nIn this case, what distribution does Z have under H_0?\nPair up with your neighbors and discuss\nRegroup in 30s to share your ideas\n\n\n\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs}\\quad H_1: \\mu &gt; \\mu_0\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\n\n\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\class{fragment}{\\overset{H_0}\\sim N(0, 1)}\\]"
   },
   {
     "objectID": "teaching_demo.html#how-do-we-decide-1",
     "href": "teaching_demo.html#how-do-we-decide-1",
     "title": "Type I and II Errors",
     "section": "How do we decide?",
-    "text": "How do we decide?\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs}\\quad \\class{green-box}{H_1: \\mu &gt; \\mu_0}\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\overset{H_0}\\sim N(0, 1)\\]\nDecision Rule\n\nReject \\(H_0\\) if \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} \\geq z_{\\alpha}\\)\nFail to reject \\(H_0\\) if \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} &lt; z_{\\alpha}\\)"
+    "text": "How do we decide?\n\n\nThe alternative tells us what’s intereting to us\nIn this case, the greater than alternative indicates that we are interested in large values of mu\nSo we reject H_0 when we observe large test statistics\n\n\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs}\\quad \\class{green-box}{H_1: \\mu &gt; \\mu_0}\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\overset{H_0}\\sim N(0, 1)\\]\nDecision Rule\n\nReject \\(H_0\\) if \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} \\geq z_{\\alpha}\\)\nFail to reject \\(H_0\\) if \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}} &lt; z_{\\alpha}\\)"
   },
   {
     "objectID": "teaching_demo.html#decision-rule",
     "href": "teaching_demo.html#decision-rule",
     "title": "Type I and II Errors",
     "section": "Decision Rule",
-    "text": "Decision Rule\n\nDecision rule: \\(z \\geq z_{0.05}\\)"
+    "text": "Decision Rule\n\n\nA visualization of the rejection region\nSince we are interested in large values of Z\nwe want to reject H_0 if Z surpasses a large threshold\nz_0.05 seems like a reasonable choice\na random draw larger than z_0.05 only happen with 5% chance\n\n\n\nDecision rule: \\(z \\geq z_{0.05}\\)"
   },
   {
     "objectID": "teaching_demo.html#decision-rule-1",
@@ -60,7 +60,7 @@
     "href": "teaching_demo.html#decision-rule-2",
     "title": "Type I and II Errors",
     "section": "Decision Rule",
-    "text": "Decision Rule\n\nDecision rule: \\(z \\geq z_{0.05}\\) ✅ \\(\\implies\\) Reject \\(H_0\\)"
+    "text": "Decision Rule\n\n\nvery skeptical about H_0 being true\naccording to the decision rule\nwe should reject H_0\n\n\n\nDecision rule: \\(z \\geq z_{0.05}\\) ✅ \\(\\implies\\) Reject \\(H_0\\)"
   },
   {
     "objectID": "teaching_demo.html#decision-rule-3",
@@ -74,63 +74,63 @@
     "href": "teaching_demo.html#reality-check",
     "title": "Type I and II Errors",
     "section": "Reality Check",
-    "text": "Reality Check\n\n\n\n\n\n\n\n\n\n\n\nDecision/Reality\n\\(H_0\\) is True\n\\(H_1\\) is True\n\n\n\n\nFail to reject \\(H_0\\)\n✅\n❌\n\n\nReject \\(H_0\\)\n❌\n✅\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nError Type\n\n\n\n\nType I error: Reject \\(H_0\\) given \\(H_0\\) is true\nType II error: Fail to reject \\(H_0\\) given \\(H_1\\) is true"
+    "text": "Reality Check\n\n\n1st row is the true state of nature\naltough unknown to us, there are only 2 possibilities\n1st column is our decision\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecision/Reality\n\\(H_0\\) is True\n\\(H_1\\) is True\n\n\n\n\nFail to reject \\(H_0\\)\n✅\n❌\n\n\nReject \\(H_0\\)\n❌\n✅\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nError Type\n\n\n\n\nType I error: Reject \\(H_0\\) given \\(H_0\\) is true\nType II error: Fail to reject \\(H_0\\) given \\(H_1\\) is true"
   },
   {
     "objectID": "teaching_demo.html#how-likely-is-a-type-i-error",
     "href": "teaching_demo.html#how-likely-is-a-type-i-error",
     "title": "Type I and II Errors",
     "section": "How likely is a Type I Error?",
-    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= \\class{fragment}{P(\\text{reject } H_0 \\mid H_0 \\text{ is true})} \\\\[3px]\n    &\\class{fragment}{{} = P(Z \\geq z_\\alpha } \\class{fragment}{ \\mid \\mu = \\mu_0)}         \\\\[3px]\n    &\\class{fragment}{{} = P(Z \\geq z_\\alpha \\mid Z \\sim N(0,1))}       \\\\[3px]\n    &\\class{fragment}{{} = \\alpha}\n\\end{align}\n\\]"
+    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= \\class{fragment}{P(\\text{reject } H_0 \\mid H_0 \\text{ is true})} \\\\[3px]\n    &\\class{fragment}{{} = P(Z \\geq z_\\alpha \\mid} \\class{fragment}{Z \\sim N(0,1))}       \\\\[3px]\n    &\\class{fragment}{{} = \\alpha}\n\\end{align}\n\\]"
   },
   {
     "objectID": "teaching_demo.html#how-likely-is-a-type-i-error-1",
     "href": "teaching_demo.html#how-likely-is-a-type-i-error-1",
     "title": "Type I and II Errors",
     "section": "How likely is a Type I Error?",
-    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= P(\\text{reject } H_0 \\mid H_0 \\text{ is true}) \\\\[3px]\n    &= P(Z \\geq z_\\alpha \\mid \\mu = \\mu_0)            \\\\[3px]\n    &= P(Z \\geq z_\\alpha \\mid Z \\sim N(0,1))          \\\\[3px]\n    &= \\alpha\n\\end{align}\n\\]\n\n\n\n\n\n\n\nTheorem\n\n\n\n\\[P(\\text{Type I Error}) = \\alpha \\qquad \\forall \\, \\text{HT}\\]\n\n\nDirectly control Type I Error rate via significance level \\(\\alpha\\)"
+    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= P(\\text{reject } H_0 \\mid H_0 \\text{ is true}) \\\\[3px]\n    &= P(Z \\geq z_\\alpha \\mid Z \\sim N(0,1))          \\\\[3px]\n    &= \\alpha\n\\end{align}\n\\]\n\n\n\n\n\n\n\nTheorem\n\n\n\\[P(\\text{Type I Error}) = \\alpha \\qquad \\forall \\, \\text{HT}\\]\n\n\nDirectly control Type I Error rate via significance level \\(\\alpha\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\nPop Quiz 🤔\n\n\nCan we set \\(\\alpha\\) to 0?"
   },
   {
     "objectID": "teaching_demo.html#section-2",
     "href": "teaching_demo.html#section-2",
     "title": "Type I and II Errors",
     "section": "",
-    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)  # ~1.96\nn_rej &lt;- 0"
+    "text": "Let’s say you can generate samples from the null distribution\nand perform as many HT as you wish\nhow would you estimate P(Type I Error)?\ncount how many tests would wrongfully reject H_0\n\n\n\n\n\n\n\n\n\nRejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)  # ~1.65\nn_rej &lt;- 0"
   },
   {
     "objectID": "teaching_demo.html#section-3",
     "href": "teaching_demo.html#section-3",
     "title": "Type I and II Errors",
     "section": "",
-    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)  # ~1.96\nn_rej &lt;- 0\n\n# Conduct 10000 HT\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics\n  if (z &gt;= z_alpha) n_rej &lt;- n_rej + 1     # count rejections\n}"
+    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)  # ~1.65\nn_rej &lt;- 0\n\n# Conduct 10000 HT\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics\n  if (z &gt;= z_alpha) n_rej &lt;- n_rej + 1     # count rejections\n}"
   },
   {
     "objectID": "teaching_demo.html#section-4",
     "href": "teaching_demo.html#section-4",
     "title": "Type I and II Errors",
     "section": "",
-    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)  # ~1.96\nn_rej &lt;- 0\n\n# Conduct HT for 10000 times\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics\n  if (z &gt;= z_alpha) n_rej &lt;- n_rej + 1     # count rejections\n}\n\n# Estimated P(Type I Error)\nn_rej / 10000\n\n[1] 0.0478\n\n\nVery close to \\(\\alpha = 0.05\\)!"
+    "text": "Rejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\nset.seed(123)\n\n# Initialize parameters\nmu0 &lt;- 0               # H_0: mu = 0\nsigma &lt;- 1; n &lt;- 50    # sd and sample size\nalpha &lt;- 0.05          # significance level\nz_alpha &lt;- qnorm(alpha, lower.tail = F)  # ~1.65\nn_rej &lt;- 0\n\n# Conduct HT for 10000 times\nfor (i in 1:10000) {\n  x &lt;- rnorm(n, mu0, sigma)                # H_0 is true: X ~ N(0,1)\n  z &lt;- (mean(x) - mu0) / (sigma / sqrt(n)) # observed test statistics\n  if (z &gt;= z_alpha) n_rej &lt;- n_rej + 1     # count rejections\n}\n\n# Estimated P(Type I Error)\nn_rej / 10000\n\n[1] 0.0478\n\n\nVery close to \\(\\alpha = 0.05\\)!"
   },
   {
     "objectID": "teaching_demo.html#how-should-we-interpret-alpha",
     "href": "teaching_demo.html#how-should-we-interpret-alpha",
     "title": "Type I and II Errors",
     "section": "How should we interpret \\(\\alpha\\)?",
-    "text": "How should we interpret \\(\\alpha\\)?\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_0: \\mu = 0\\) were true, there is a 5% chance that the HT procedure will lead to the conclusion of\n\n“Reject \\(H_0\\)”"
+    "text": "How should we interpret \\(\\alpha\\)?\n\n\nwhat gives?\nalthough having a observed test statistics larger than z_0.05 is uncommon\nit’s not impossible\nin these rare instances, we would think H_1 makes more sence\nbut in fact, H_0 is true\n\n\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_0: \\mu = 0\\) were true, there is a 5% chance that the HT procedure will lead to the conclusion of\n\n“Reject \\(H_0\\)”"
   },
   {
     "objectID": "teaching_demo.html#how-likely-is-a-type-ii-error",
     "href": "teaching_demo.html#how-likely-is-a-type-ii-error",
     "title": "Type I and II Errors",
     "section": "How likely is a Type II Error?",
-    "text": "How likely is a Type II Error?\n\n\n\n\n\n\n\nRejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\\[P(\\text{Type II Error})= P(\\underbrace{\\text{fail to reject } H_0}_{(1)} \\mid \\underbrace{H_1 \\text{ is true}}_{(2)})\\]\n\n\nWhen would we “fail to reject \\(H_0\\)” ? \\(\\implies\\) \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha\\)\nWhat does “\\(H_1\\) is true” mean? \\(\\implies\\) \\(\\mu = \\mu_1\\), where \\(\\mu_1\\) is a number \\(&gt; \\mu_0\\)\n\n\\[\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}} \\overset{H_1}{\\sim} N(0, 1)\\]"
+    "text": "How likely is a Type II Error?\n\n\nbut what does it really mean?\nit means that X_bar ~ N(mu_1, sigma^2)\n\n\n\n\n\n\n\n\n\nRejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\\[P(\\text{Type II Error})= P(\\underbrace{\\text{fail to reject } H_0}_{(1)} \\mid \\underbrace{H_1 \\text{ is true}}_{(2)})\\]\n\n\nWhen would we “fail to reject \\(H_0\\)” ? \\(\\implies\\) \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha\\)\nWhat does “\\(H_1\\) is true” mean? \\(\\implies\\) \\(\\mu = \\mu_1\\), where \\(\\mu_1\\) is a number \\(&gt; \\mu_0\\)\n\n\\[\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}} \\overset{H_1}{\\sim} N(0, 1)\\]"
   },
   {
     "objectID": "teaching_demo.html#how-likely-is-a-type-ii-error-1",
     "href": "teaching_demo.html#how-likely-is-a-type-ii-error-1",
     "title": "Type I and II Errors",
     "section": "How likely is a Type II Error?",
-    "text": "How likely is a Type II Error?\n\n\\[\n\\begin{align}\n  P(\\text{Type II Error})\n    &= \\class{fragment}{P(\\text{fail to reject } H_0 \\mid H_1 \\text{ is true})} \\\\[3px]\n    &\\class{fragment}{{} = P\\left(\\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha \\mid \\mu = \\mu_1\\right)}         \\\\[3px]\n    &\\class{fragment}{{} = P\\left(\\bar{X} - \\mu_0 &lt; z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\left(\\bar{X} &lt; \\mu_0 + z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\left(\\bar{X} - \\mu_1 &lt; \\mu_0 - \\mu_1 + z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\Bigg(\\underbrace{\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}}}_{\\class{fragment}{\\overset{H_1}{\\sim} N(0,1)}} &lt; \\underbrace{\\frac{\\mu_0 - \\mu_1}{\\sigma/\\sqrt{n}} + z_\\alpha}_{\\class{fragment}{\\text{constant}}} \\mid \\cdots\\Bigg)}       \\\\[3px]\n   &\\class{fragment}{{} = \\beta \\quad\\text{by looking up } Z \\text{ table}}\n\\end{align}\n\\]"
+    "text": "How likely is a Type II Error?\n\n\nDeconstruct the complex test stat to simpler RV\nReconstruct to a nice RV\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type II Error})\n    &= \\class{fragment}{P(\\text{fail to reject } H_0 \\mid H_1 \\text{ is true})} \\\\[3px]\n    &\\class{fragment}{{} = P\\left(\\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha \\mid \\mu = \\mu_1\\right)}         \\\\[3px]\n    &\\class{fragment}{{} = P\\left(\\bar{X} - \\mu_0 &lt; z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\left(\\bar{X} &lt; \\mu_0 + z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\left(\\bar{X} - \\mu_1 &lt; \\mu_0 - \\mu_1 + z_\\alpha \\cdot \\frac{\\sigma}{\\sqrt{n}} \\mid \\cdots\\right)}       \\\\[3px]\n   &\\class{fragment}{{} = P\\Bigg(\\underbrace{\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}}}_{\\class{fragment}{\\overset{H_1}{\\sim} N(0,1)}} &lt; \\underbrace{\\frac{\\mu_0 - \\mu_1}{\\sigma/\\sqrt{n}} + z_\\alpha}_{\\class{fragment}{\\text{constant}}} \\mid \\cdots\\Bigg)}       \\\\[3px]\n   &\\class{fragment}{{} = \\beta \\quad\\text{by looking up } Z \\text{ table}}\n\\end{align}\n\\]"
   },
   {
     "objectID": "teaching_demo.html#section-5",
@@ -165,7 +165,7 @@
     "href": "teaching_demo.html#how-do-we-interpret-beta",
     "title": "Type I and II Errors",
     "section": "How do we interpret \\(\\beta\\)?",
-    "text": "How do we interpret \\(\\beta\\)?\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_1: \\mu = 0.3\\) were true, there is a 31.7% chance that the HT procedure will lead to the conclusion of\n\n“Fail to reject \\(H_0\\)”"
+    "text": "How do we interpret \\(\\beta\\)?\n\n\nWe picked z_0.05 based on H_0\nNow that H_1 is true\nfaiure to reject H_0 will lead to a wrong conclusion\nThat is, any observed test statistics to left of z_0.05\nwill result in a Type II error\n\n\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_1: \\mu = 0.3\\) were true, there is a 31.7% chance that the HT procedure will lead to the conclusion of\n\n“Fail to reject \\(H_0\\)”"
   },
   {
     "objectID": "teaching_demo.html#new-medication",

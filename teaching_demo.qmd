@@ -137,6 +137,18 @@ The use of probability theory and statistics to decide <span class="bold-red">2 
 
 ## How do we decide? {.mid auto-animate=true}
 
+::: {.notes}
+- Let's take 1-sample Z-test as an example
+- hold for other HT
+- In order to determine whether our observations make sence under H_0
+- we need to know what's normal under H_0
+- To this end, we will need something called the Test Stat
+- The null distribution of Test Stat can help us determine what's normal and what isn't
+- In this case, what distribution does Z have under H_0?
+- Pair up with your neighbors and discuss
+- Regroup in 30s to share your ideas
+:::
+
 . . .
 
 Suppose $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)$, where $\sigma^2$ is known. Want to test
@@ -152,6 +164,12 @@ $$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \class{fragment}{\overset{H_0}\sim
 
 
 ## How do we decide? {.mid visibility="uncounted" auto-animate=true}
+
+::: {.notes}
+- The alternative tells us what's intereting to us
+- In this case, the greater than alternative indicates that we are interested in large values of mu
+- So we reject H_0 when we observe large test statistics
+:::
 
 Suppose $X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)$, where $\sigma^2$ is known. Want to test
 
@@ -169,6 +187,15 @@ $$Z = \frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}} \overset{H_0}\sim N(0, 1)$$
 
 
 ## Decision Rule
+
+::: {.notes}
+- A visualization of the rejection region
+- Since we are interested in large values of Z
+- we want to reject H_0 if Z surpasses a large threshold
+- z_0.05 seems like a reasonable choice
+- a random draw larger than z_0.05 only happen with 5% chance
+:::
+
 ```{r}
 #| echo: false
 #| output-location: slide
@@ -184,9 +211,9 @@ data <- data.frame(x = x, density_0_1 = density_0_1, density_2_1 = density_2_1)
 # Plot only the red density curve
 p <- ggplot(data) +
   geom_line(aes(x = x, y = density_0_1), color = "red", size = 1) +
-  geom_area(data = subset(data, x > 1.96), aes(x = x, y = density_0_1), 
+  geom_area(data = subset(data, x > 1.65), aes(x = x, y = density_0_1), 
             fill = "red", alpha = 0.3) +
-  geom_segment(aes(x = 1.96, xend = 1.96, y = 0, yend = dnorm(1.96, mean = 0, sd = 1)),
+  geom_segment(aes(x = 1.65, xend = 1.65, y = 0, yend = dnorm(1.65, mean = 0, sd = 1)),
                color = "black", linetype = "dashed") +
   geom_segment(aes(x = 0, xend = 0, y = 0, yend = 0.01),
                color = "black") +
@@ -206,6 +233,10 @@ p
 ```
 Decision rule: $z \geq z_{0.05}$
 
+
+
+
+
 ## Decision Rule {visibility="uncounted"}
 
 ```{r}
@@ -220,6 +251,12 @@ p +
 Decision rule: $z \geq z_{0.05}$ [`r emo::ji("x")` $\implies$ Fail to reject $H_0$]{.fragment}
 
 ## Decision Rule {visibility="uncounted"}
+
+::: {.notes}
+- very skeptical about H_0 being true
+- according to the decision rule
+- we should reject H_0
+:::
 
 ```{r}
 #| echo: false
@@ -254,6 +291,12 @@ $z = 2.7$ is more likely to come from the <span class="bold-blue">blue distribut
 # Will we always get it right?
 
 ## Reality Check
+
+::: {.notes}
+- 1st row is the true state of nature
+- altough unknown to us, there are only 2 possibilities
+- 1st column is our decision
+:::
 
 ::: {style="margin-bottom: 2em;"}
 :::
@@ -292,8 +335,7 @@ $$
 \begin{align}
   P(\text{Type I Error})
     &= \class{fragment}{P(\text{reject } H_0 \mid H_0 \text{ is true})} \\[3px]
-    &\class{fragment}{{} = P(Z \geq z_\alpha } \class{fragment}{ \mid \mu = \mu_0)}         \\[3px]
-    &\class{fragment}{{} = P(Z \geq z_\alpha \mid Z \sim N(0,1))}       \\[3px]
+    &\class{fragment}{{} = P(Z \geq z_\alpha \mid} \class{fragment}{Z \sim N(0,1))}       \\[3px]
     &\class{fragment}{{} = \alpha}
 \end{align}
 $$
@@ -307,15 +349,12 @@ $$
 \begin{align}
   P(\text{Type I Error})
     &= P(\text{reject } H_0 \mid H_0 \text{ is true}) \\[3px]
-    &= P(Z \geq z_\alpha \mid \mu = \mu_0)            \\[3px]
     &= P(Z \geq z_\alpha \mid Z \sim N(0,1))          \\[3px]
     &= \alpha
 \end{align}
 $$
 
-::: {.callout-note title="<span style='font-size: 1.75em; color: #0078D7;'>Theorem</span>"}
-
-::: {.larger}
+::: {.callout-note title="<span style='font-size: 1.5em; color: #0078D7;'>Theorem</span>" .large}
 
 $$P(\text{Type I Error}) = \alpha \qquad \forall \, \text{HT}$$
 
@@ -324,15 +363,25 @@ $$P(\text{Type I Error}) = \alpha \qquad \forall \, \text{HT}$$
 :::
 
 :::
+
+::: {.callout-warning title="<span style='font-size: 1.5em; color: #B8860B;'>Pop Quiz `r emo::ji("thinking")`</span>" .fragment}
+[Can we set $\alpha$ to 0?]{.larger}
 :::
 
 # Let's verify this!
 
 ## {auto-animate=true}
 
+::: {.notes}
+- Let's say you can generate samples from the null distribution
+- and perform as many HT as you wish
+- how would you estimate P(Type I Error)?
+- count how many tests would wrongfully reject H_0
+:::
+
 ::: {.callout-tip title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
 
-[$$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$]{.fragment}
+$$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
 
 :::
 
@@ -347,7 +396,7 @@ set.seed(123)
 mu0 <- 0               # H_0: mu = 0
 sigma <- 1; n <- 50    # sd and sample size
 alpha <- 0.05          # significance level
-z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.96
+z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.65
 n_rej <- 0
 ```
 
@@ -368,7 +417,7 @@ set.seed(123)
 mu0 <- 0               # H_0: mu = 0
 sigma <- 1; n <- 50    # sd and sample size
 alpha <- 0.05          # significance level
-z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.96
+z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.65
 n_rej <- 0
 
 # Conduct 10000 HT
@@ -395,7 +444,7 @@ set.seed(123)
 mu0 <- 0               # H_0: mu = 0
 sigma <- 1; n <- 50    # sd and sample size
 alpha <- 0.05          # significance level
-z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.96
+z_alpha <- qnorm(alpha, lower.tail = F)  # ~1.65
 n_rej <- 0
 
 # Conduct HT for 10000 times
@@ -415,6 +464,14 @@ n_rej / 10000
 
 ## How should we interpret $\alpha$?
 
+::: {.notes}
+- what gives?
+- although having a observed test statistics larger than z_0.05 is uncommon
+- it's not impossible
+- in these rare instances, we would think H_1 makes more sence 
+- but in fact, H_0 is true
+:::
+
 ::: {.callout-note title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>"}
 [If <span class="bold-green">$H_0: \mu = 0$ were true</span>, there is a 5\% chance that the HT procedure will lead to the conclusion of]{.fragment}
 
@@ -431,6 +488,11 @@ n_rej / 10000
 
 
 ## How likely is a Type II Error? {.mid}
+
+::: {.notes}
+- but what does it really mean?
+- it means that X_bar ~ N(mu_1, sigma^2)
+:::
 
 ::: {.callout-tip title="<span style='font-size: 1em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
 $$z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}$$
@@ -450,6 +512,11 @@ $$P(\text{Type II Error})= P(\underbrace{\text{fail to reject } H_0}_{(1)} \mid 
 :::
 
 ## How likely is a Type II Error? {.scrollable}
+
+::: {.notes}
+- Deconstruct the complex test stat to simpler RV
+- Reconstruct to a nice RV
+:::
 
 ::: {.small}
 $$
@@ -570,6 +637,14 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 
 
 ## How do we interpret $\beta$?
+
+::: {.notes}
+- We picked z_0.05 based on H_0
+- Now that H_1 is true
+- faiure to reject H_0 will lead to a wrong conclusion
+- That is, any observed test statistics to left of z_0.05
+- will result in a Type II error
+:::
 
 ::: {.callout-note title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>"}
 [If <span class="bold-green">$H_1: \mu = 0.3$ were true</span>, there is a <span class="bold-red">31.7\%</span> chance that the HT procedure will lead to the conclusion of]{.fragment}

@@ -340,6 +340,29 @@ Shengbin Ye
 </section>
 <section id="how-do-we-decide" class="slide level2 mid" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">How do we decide?</h2>
+<aside class="notes">
+<ul>
+<li>Let’s take 1-sample Z-test as an example</li>
+<li>hold for other HT</li>
+<li>In order to determine whether our observations make sence under H_0</li>
+<li>we need to know what’s normal under H_0</li>
+<li>To this end, we will need something called the Test Stat</li>
+<li>The null distribution of Test Stat can help us determine what’s normal and what isn’t</li>
+<li>In this case, what distribution does Z have under H_0?</li>
+<li>Pair up with your neighbors and discuss</li>
+<li>Regroup in 30s to share your ideas</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="fragment">
 <p>Suppose <span class="math inline">\(X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)\)</span>, where <span class="math inline">\(\sigma^2\)</span> is known. Want to test</p>
 <p><span class="math display">\[H_0: \mu = \mu_0 \quad\text{vs}\quad H_1: \mu &gt; \mu_0\]</span> at <span class="math inline">\(\alpha\)</span> level of significance (say <span class="math inline">\(\alpha=0.05\)</span>).</p>
@@ -351,6 +374,23 @@ Shengbin Ye
 </section>
 <section id="how-do-we-decide-1" class="slide level2 mid" data-visibility="uncounted" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">How do we decide?</h2>
+<aside class="notes">
+<ul>
+<li>The alternative tells us what’s intereting to us</li>
+<li>In this case, the greater than alternative indicates that we are interested in large values of mu</li>
+<li>So we reject H_0 when we observe large test statistics</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <p>Suppose <span class="math inline">\(X_1, \ldots, X_n \overset{\text{iid}}{\sim} N(\mu, \sigma^2)\)</span>, where <span class="math inline">\(\sigma^2\)</span> is known. Want to test</p>
 <p><span class="math display">\[H_0: \mu = \mu_0 \quad\text{vs}\quad \class{green-box}{H_1: \mu &gt; \mu_0}\]</span> at <span class="math inline">\(\alpha\)</span> level of significance (say <span class="math inline">\(\alpha=0.05\)</span>).</p>
 <p><strong>Test Statistics</strong></p>
@@ -363,6 +403,25 @@ Shengbin Ye
 </section>
 <section id="decision-rule" class="slide level2">
 <h2>Decision Rule</h2>
+<aside class="notes">
+<ul>
+<li>A visualization of the rejection region</li>
+<li>Since we are interested in large values of Z</li>
+<li>we want to reject H_0 if Z surpasses a large threshold</li>
+<li>z_0.05 seems like a reasonable choice</li>
+<li>a random draw larger than z_0.05 only happen with 5% chance</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <img data-src="teaching_demo_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><p>Decision rule: <span class="math inline">\(z \geq z_{0.05}\)</span></p>
 </section>
@@ -373,6 +432,23 @@ Shengbin Ye
 </section>
 <section id="decision-rule-2" class="slide level2" data-visibility="uncounted">
 <h2>Decision Rule</h2>
+<aside class="notes">
+<ul>
+<li>very skeptical about H_0 being true</li>
+<li>according to the decision rule</li>
+<li>we should reject H_0</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <img data-src="teaching_demo_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><p>Decision rule: <span class="math inline">\(z \geq z_{0.05}\)</span> <span class="fragment">✅ <span class="math inline">\(\implies\)</span> Reject <span class="math inline">\(H_0\)</span></span></p>
 </section>
@@ -388,6 +464,23 @@ Shengbin Ye
 </section>
 <section id="reality-check" class="slide level2">
 <h2>Reality Check</h2>
+<aside class="notes">
+<ul>
+<li>1st row is the true state of nature</li>
+<li>altough unknown to us, there are only 2 possibilities</li>
+<li>1st column is our decision</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div style="margin-bottom: 2em;">
 
 </div>
@@ -452,8 +545,7 @@ Shengbin Ye
 \begin{align}
   P(\text{Type I Error})
     &amp;= \class{fragment}{P(\text{reject } H_0 \mid H_0 \text{ is true})} \\[3px]
-    &amp;\class{fragment}{{} = P(Z \geq z_\alpha } \class{fragment}{ \mid \mu = \mu_0)}         \\[3px]
-    &amp;\class{fragment}{{} = P(Z \geq z_\alpha \mid Z \sim N(0,1))}       \\[3px]
+    &amp;\class{fragment}{{} = P(Z \geq z_\alpha \mid} \class{fragment}{Z \sim N(0,1))}       \\[3px]
     &amp;\class{fragment}{{} = \alpha}
 \end{align}
 \]</span></p>
@@ -467,22 +559,20 @@ Shengbin Ye
 \begin{align}
   P(\text{Type I Error})
     &amp;= P(\text{reject } H_0 \mid H_0 \text{ is true}) \\[3px]
-    &amp;= P(Z \geq z_\alpha \mid \mu = \mu_0)            \\[3px]
     &amp;= P(Z \geq z_\alpha \mid Z \sim N(0,1))          \\[3px]
     &amp;= \alpha
 \end{align}
 \]</span></p>
-<div title="<span style='font-size: 1.75em; color: #0078D7;'>Theorem</span>">
+<div class="large" title="<span style='font-size: 1.5em; color: #0078D7;'>Theorem</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong><span style="font-size: 1.75em; color: #0078D7;">Theorem</span></strong></p>
+<p><strong><span style="font-size: 1.5em; color: #0078D7;">Theorem</span></strong></p>
 </div>
 <div class="callout-content">
-<div class="larger">
 <p><span class="math display">\[P(\text{Type I Error}) = \alpha \qquad \forall \, \text{HT}\]</span></p>
 <div>
 <ul>
@@ -490,6 +580,20 @@ Shengbin Ye
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="fragment" title="<span style='font-size: 1.5em; color: #B8860B;'>Pop Quiz 🤔</span>">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span style="font-size: 1.5em; color: #B8860B;">Pop Quiz 🤔</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="larger">Can we set <span class="math inline">\(\alpha\)</span> to 0?</span></p>
 </div>
 </div>
 </div>
@@ -502,6 +606,24 @@ Shengbin Ye
 </section>
 <section id="section-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
+<aside class="notes">
+<ul>
+<li>Let’s say you can generate samples from the null distribution</li>
+<li>and perform as many HT as you wish</li>
+<li>how would you estimate P(Type I Error)?</li>
+<li>count how many tests would wrongfully reject H_0</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div title="<span style='font-size: 1.5em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -512,7 +634,7 @@ Shengbin Ye
 <p><strong><span style="font-size: 1.5em; color: #44745A;">Rejection Rule for <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span></span></strong></p>
 </div>
 <div class="callout-content">
-<p><span class="fragment"><span class="math display">\[z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}\]</span></span></p>
+<p><span class="math display">\[z = \frac{\bar{x} - \mu_0}{\sigma/\sqrt{n}} \geq z_{\alpha}\]</span></p>
 </div>
 </div>
 </div>
@@ -525,7 +647,7 @@ Shengbin Ye
 <span id="cb1-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>               <span class="co"># H_0: mu = 0</span></span>
 <span id="cb1-5" class="hljs-ln-code"><a></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span>; n <span class="ot">&lt;-</span> <span class="dv">50</span>    <span class="co"># sd and sample size</span></span>
 <span id="cb1-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>          <span class="co"># significance level</span></span>
-<span id="cb1-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.96</span></span>
+<span id="cb1-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.65</span></span>
 <span id="cb1-8" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -554,7 +676,7 @@ Shengbin Ye
 <span id="cb2-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>               <span class="co"># H_0: mu = 0</span></span>
 <span id="cb2-5" class="hljs-ln-code"><a></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span>; n <span class="ot">&lt;-</span> <span class="dv">50</span>    <span class="co"># sd and sample size</span></span>
 <span id="cb2-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>          <span class="co"># significance level</span></span>
-<span id="cb2-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.96</span></span>
+<span id="cb2-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.65</span></span>
 <span id="cb2-8" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb2-9" class="hljs-ln-code"><a></a></span>
 <span id="cb2-10" class="hljs-ln-code"><a></a><span class="co"># Conduct 10000 HT</span></span>
@@ -589,7 +711,7 @@ Shengbin Ye
 <span id="cb3-4" class="hljs-ln-code"><a></a>mu0 <span class="ot">&lt;-</span> <span class="dv">0</span>               <span class="co"># H_0: mu = 0</span></span>
 <span id="cb3-5" class="hljs-ln-code"><a></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span>; n <span class="ot">&lt;-</span> <span class="dv">50</span>    <span class="co"># sd and sample size</span></span>
 <span id="cb3-6" class="hljs-ln-code"><a></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>          <span class="co"># significance level</span></span>
-<span id="cb3-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.96</span></span>
+<span id="cb3-7" class="hljs-ln-code"><a></a>z_alpha <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(alpha, <span class="at">lower.tail =</span> F)  <span class="co"># ~1.65</span></span>
 <span id="cb3-8" class="hljs-ln-code"><a></a>n_rej <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb3-9" class="hljs-ln-code"><a></a></span>
 <span id="cb3-10" class="hljs-ln-code"><a></a><span class="co"># Conduct HT for 10000 times</span></span>
@@ -609,6 +731,25 @@ Shengbin Ye
 </section>
 <section id="how-should-we-interpret-alpha" class="slide level2">
 <h2>How should we interpret <span class="math inline">\(\alpha\)</span>?</h2>
+<aside class="notes">
+<ul>
+<li>what gives?</li>
+<li>although having a observed test statistics larger than z_0.05 is uncommon</li>
+<li>it’s not impossible</li>
+<li>in these rare instances, we would think H_1 makes more sence</li>
+<li>but in fact, H_0 is true</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -634,6 +775,22 @@ Shengbin Ye
 </section>
 <section id="how-likely-is-a-type-ii-error" class="slide level2 mid">
 <h2>How likely is a Type II Error?</h2>
+<aside class="notes">
+<ul>
+<li>but what does it really mean?</li>
+<li>it means that X_bar ~ N(mu_1, sigma^2)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div title="<span style='font-size: 1em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -664,6 +821,22 @@ Shengbin Ye
 </section>
 <section id="how-likely-is-a-type-ii-error-1" class="slide level2 scrollable">
 <h2>How likely is a Type II Error?</h2>
+<aside class="notes">
+<ul>
+<li>Deconstruct the complex test stat to simpler RV</li>
+<li>Reconstruct to a nice RV</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="small">
 <p><span class="math display">\[
 \begin{align}
@@ -781,6 +954,25 @@ Shengbin Ye
 </section>
 <section id="how-do-we-interpret-beta" class="slide level2">
 <h2>How do we interpret <span class="math inline">\(\beta\)</span>?</h2>
+<aside class="notes">
+<ul>
+<li>We picked z_0.05 based on H_0</li>
+<li>Now that H_1 is true</li>
+<li>faiure to reject H_0 will lead to a wrong conclusion</li>
+<li>That is, any observed test statistics to left of z_0.05</li>
+<li>will result in a Type II error</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
