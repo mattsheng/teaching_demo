@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.37">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.39">
 
   <meta name="author" content="Shengbin Ye">
   <title>Type I and II Errors</title>
@@ -220,6 +220,24 @@ Shengbin Ye
 <section id="target-audience" class="slide level2">
 <h2>Target Audience</h2>
 <p><br> <br></p>
+<aside class="notes">
+<ul>
+<li>Welcome to my mock lecture</li>
+<li>before we start, I’d like to provide some background about today’s lecture</li>
+<li>this lecture is designed for an introductory statistics and data science course</li>
+<li>with a target audience of</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="large">
 <ul>
 <li>Undergraduate students</li>
@@ -236,6 +254,25 @@ Shengbin Ye
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
 <p><br> <br></p>
+<aside class="notes">
+<ul>
+<li>Last time, we introduced a couple of HT for testing 1 population mean</li>
+<li>including 1-sample Z-test</li>
+<li>Today, we will start with a brief review of the HT framework</li>
+<li>and develope a deeper understanding of how it works</li>
+<li>Then we will define…</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="large">
 <ul>
 <li class="fragment">Review of <strong>Hypothesis Test</strong> framework</li>
@@ -247,6 +284,26 @@ Shengbin Ye
 </section>
 <section id="section" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
+<aside class="notes">
+<ul>
+<li>So, what are the 2 competiting options?</li>
+<li>The 1st option is H_0</li>
+<li>The 2nd option is H_1</li>
+<li>This is usually the finding you hope to have happen</li>
+<li>For instance, you might be a pharmaceutical scientists</li>
+<li>Or you might be a judge on a criminal trial</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div title="<span style='font-size: 2em; color: #4169E1;'>Hypothesis Test</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -295,6 +352,21 @@ Shengbin Ye
 </section>
 <section id="section-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
+<aside class="notes">
+<ul>
+<li>Both examples share a similar framework</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="example">
@@ -342,12 +414,11 @@ Shengbin Ye
 <h2 data-id="quarto-animate-title">How do we decide?</h2>
 <aside class="notes">
 <ul>
-<li>Let’s take 1-sample Z-test as an example</li>
-<li>hold for other HT</li>
+<li>Let’s take 1-sample Z-test as an example (hold for other HT)</li>
 <li>In order to determine whether our observations make sence under H_0</li>
 <li>we need to know what’s normal under H_0</li>
-<li>To this end, we will need something called the Test Stat</li>
-<li>The null distribution of Test Stat can help us determine what’s normal and what isn’t</li>
+<li>In HT, we use Test Stat to help us answer this question</li>
+<li>In particular, the distribution of Z under H_0 characterizes what observations are likely and what aren’t assuming H_0 is true</li>
 <li>In this case, what distribution does Z have under H_0?</li>
 <li>Pair up with your neighbors and discuss</li>
 <li>Regroup in 30s to share your ideas</li>

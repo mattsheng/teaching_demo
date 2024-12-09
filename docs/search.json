@@ -4,35 +4,35 @@
     "href": "teaching_demo.html#target-audience",
     "title": "Type I and II Errors",
     "section": "Target Audience",
-    "text": "Target Audience\n \n\n\nUndergraduate students\nDiverse majors\nHave seen\n\nNormal distribution\nHypothesis Test\nSome coding experience (not strictly required)"
+    "text": "Target Audience\n \n\n\nWelcome to my mock lecture\nbefore we start, I’d like to provide some background about today’s lecture\nthis lecture is designed for an introductory statistics and data science course\nwith a target audience of\n\n\n\n\nUndergraduate students\nDiverse majors\nHave seen\n\nNormal distribution\nHypothesis Test\nSome coding experience (not strictly required)"
   },
   {
     "objectID": "teaching_demo.html#overview",
     "href": "teaching_demo.html#overview",
     "title": "Type I and II Errors",
     "section": "Overview",
-    "text": "Overview\n \n\n\nReview of Hypothesis Test framework\nDefine Type I & Type II errors\nDerive probability of errors\nDiscuss error tradeoff"
+    "text": "Overview\n \n\n\nLast time, we introduced a couple of HT for testing 1 population mean\nincluding 1-sample Z-test\nToday, we will start with a brief review of the HT framework\nand develope a deeper understanding of how it works\nThen we will define…\n\n\n\n\nReview of Hypothesis Test framework\nDefine Type I & Type II errors\nDerive probability of errors\nDiscuss error tradeoff"
   },
   {
     "objectID": "teaching_demo.html#section",
     "href": "teaching_demo.html#section",
     "title": "Type I and II Errors",
     "section": "",
-    "text": "Hypothesis Test\n\n\n\nThe use of probability theory and statistics to decide 2 competing options while recognizing the randomness of data.\n\n\n\n\n\n\n\nNull hypothesis \\((H_0)\\): a statement of the status quo, i.e., nothing interesting is going on.\nAlternative hypothesis \\((H_1)\\): a theory that interests you before any data are collected.\n\n\n\n\n\nNew Medication 💊\n\n\n\\(H_0\\): Ineffective\n\\(H_1\\): Effective\n\n\n\n\n\nCriminal Trial 🚔\n\n\n\\(H_0\\): Not guilty\n\\(H_1\\): Guilty"
+    "text": "So, what are the 2 competiting options?\nThe 1st option is H_0\nThe 2nd option is H_1\nThis is usually the finding you hope to have happen\nFor instance, you might be a pharmaceutical scientists\nOr you might be a judge on a criminal trial\n\n\n\n\n\n\n\n\n\nHypothesis Test\n\n\n\nThe use of probability theory and statistics to decide 2 competing options while recognizing the randomness of data.\n\n\n\n\n\n\n\nNull hypothesis \\((H_0)\\): a statement of the status quo, i.e., nothing interesting is going on.\nAlternative hypothesis \\((H_1)\\): a theory that interests you before any data are collected.\n\n\n\n\n\nNew Medication 💊\n\n\n\\(H_0\\): Ineffective\n\\(H_1\\): Effective\n\n\n\n\n\nCriminal Trial 🚔\n\n\n\\(H_0\\): Not guilty\n\\(H_1\\): Guilty"
   },
   {
     "objectID": "teaching_demo.html#section-1",
     "href": "teaching_demo.html#section-1",
     "title": "Type I and II Errors",
     "section": "",
-    "text": "New Medication 💊\n\n\\(H_0\\): Ineffective\n\\(H_1\\): Effective\n\n\n\n\nCriminal Trial 🚔\n\n\\(H_0\\): Not guilty\n\\(H_1\\): Guilty\n\n\n\n\n\n\n\n\n\nFramework\n\n\n\n\nPresume \\(H_0\\) is true\nCollect data\n\nUnlikely data under \\(H_0 \\implies\\) reject \\(H_0\\)\nOtherwise, we fail to reject \\(H_0\\)"
+    "text": "Both examples share a similar framework\n\n\n\n\n\nNew Medication 💊\n\n\\(H_0\\): Ineffective\n\\(H_1\\): Effective\n\n\n\n\nCriminal Trial 🚔\n\n\\(H_0\\): Not guilty\n\\(H_1\\): Guilty\n\n\n\n\n\n\n\n\n\nFramework\n\n\n\n\nPresume \\(H_0\\) is true\nCollect data\n\nUnlikely data under \\(H_0 \\implies\\) reject \\(H_0\\)\nOtherwise, we fail to reject \\(H_0\\)"
   },
   {
     "objectID": "teaching_demo.html#how-do-we-decide",
     "href": "teaching_demo.html#how-do-we-decide",
     "title": "Type I and II Errors",
     "section": "How do we decide?",
-    "text": "How do we decide?\n\n\nLet’s take 1-sample Z-test as an example\nhold for other HT\nIn order to determine whether our observations make sence under H_0\nwe need to know what’s normal under H_0\nTo this end, we will need something called the Test Stat\nThe null distribution of Test Stat can help us determine what’s normal and what isn’t\nIn this case, what distribution does Z have under H_0?\nPair up with your neighbors and discuss\nRegroup in 30s to share your ideas\n\n\n\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs}\\quad H_1: \\mu &gt; \\mu_0\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\n\n\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\class{fragment}{\\overset{H_0}\\sim N(0, 1)}\\]"
+    "text": "How do we decide?\n\n\nLet’s take 1-sample Z-test as an example (hold for other HT)\nIn order to determine whether our observations make sence under H_0\nwe need to know what’s normal under H_0\nIn HT, we use Test Stat to help us answer this question\nIn particular, the distribution of Z under H_0 characterizes what observations are likely and what aren’t assuming H_0 is true\nIn this case, what distribution does Z have under H_0?\nPair up with your neighbors and discuss\nRegroup in 30s to share your ideas\n\n\n\nSuppose \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} N(\\mu, \\sigma^2)\\), where \\(\\sigma^2\\) is known. Want to test\n\\[H_0: \\mu = \\mu_0 \\quad\\text{vs}\\quad H_1: \\mu &gt; \\mu_0\\] at \\(\\alpha\\) level of significance (say \\(\\alpha=0.05\\)).\n\n\nTest Statistics\n\\[Z = \\frac{\\bar{X} - \\mu_0}{\\sigma/\\sqrt{n}} \\class{fragment}{\\overset{H_0}\\sim N(0, 1)}\\]"
   },
   {
     "objectID": "teaching_demo.html#how-do-we-decide-1",
