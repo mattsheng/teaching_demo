@@ -4,7 +4,7 @@
     "href": "teaching_demo.html#target-audience",
     "title": "Type I and II Errors",
     "section": "Target Audience",
-    "text": "Target Audience\n \n\n\nWelcome to my mock lecture\nbefore we start, I’d like to provide some background about today’s lecture\nthis lecture is designed for an introductory statistics and data science course\nwith a target audience of\n\n\n\n\nUndergraduate students\nDiverse majors\nHave seen\n\nNormal distribution\nHypothesis Test\nSome coding experience (not strictly required)"
+    "text": "Target Audience\n\n\n\nWelcome to my mock lecture\nbefore we start, I’d like to provide some background about today’s lecture\nthis lecture is designed for an introductory statistics and data science course\nwith a target audience of\n\n\n\n\nUndergraduate students\nDiverse majors\nTaking an Introductory Statistics and Data Science course (e.g. STAT 202, 210)\nHave seen\n\nNormal distribution\nHypothesis Test\nSome coding experience (not strictly required)"
   },
   {
     "objectID": "teaching_demo.html#overview",
@@ -74,7 +74,7 @@
     "href": "teaching_demo.html#reality-check",
     "title": "Type I and II Errors",
     "section": "Reality Check",
-    "text": "Reality Check\n\n\n1st row is the true state of nature\naltough unknown to us, there are only 2 possibilities\n1st column is our decision\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecision/Reality\n\\(H_0\\) is True\n\\(H_1\\) is True\n\n\n\n\nFail to reject \\(H_0\\)\n✅\n❌\n\n\nReject \\(H_0\\)\n❌\n✅\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nError Type\n\n\n\n\nType I error: Reject \\(H_0\\) given \\(H_0\\) is true\nType II error: Fail to reject \\(H_0\\) given \\(H_1\\) is true"
+    "text": "Reality Check\n\n\n1st row is the true state of nature\naltough unknown to us, there are only 2 possibilities\n1st column is our decision\nThis simple reality check confirms that we can make\nwrong decisions when conducting HT\nNow that we know mistakes can happen\nlet’s try to get a sense on how likely\nare mistakes to occur\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecision/Reality\n\\(H_0\\) is True\n\\(H_1\\) is True\n\n\n\n\nFail to reject \\(H_0\\)\n✅\n❌\n\n\nReject \\(H_0\\)\n❌\n✅\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nError Type\n\n\n\n\nType I error: Reject \\(H_0\\) given \\(H_0\\) is true\nType II error: Fail to reject \\(H_0\\) given \\(H_1\\) is true"
   },
   {
     "objectID": "teaching_demo.html#how-likely-is-a-type-i-error",
@@ -88,7 +88,7 @@
     "href": "teaching_demo.html#how-likely-is-a-type-i-error-1",
     "title": "Type I and II Errors",
     "section": "How likely is a Type I Error?",
-    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= P(\\text{reject } H_0 \\mid H_0 \\text{ is true}) \\\\[3px]\n    &= P(Z \\geq z_\\alpha \\mid Z \\sim N(0,1))          \\\\[3px]\n    &= \\alpha\n\\end{align}\n\\]\n\n\n\n\n\n\n\nTheorem\n\n\n\\[P(\\text{Type I Error}) = \\alpha \\qquad \\forall \\, \\text{HT}\\]\n\n\nDirectly control Type I Error rate via significance level \\(\\alpha\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\nPop Quiz 🤔\n\n\nCan we set \\(\\alpha\\) to 0?"
+    "text": "How likely is a Type I Error?\n\n\n\n\\[\n\\begin{align}\n  P(\\text{Type I Error})\n    &= P(\\text{reject } H_0 \\mid H_0 \\text{ is true}) \\\\[3px]\n    &= P(Z \\geq z_\\alpha \\mid Z \\sim N(0,1))          \\\\[3px]\n    &= \\alpha\n\\end{align}\n\\]\n\n\n\n\n\n\n\nTheorem\n\n\n\n\\[P(\\text{Type I Error}) = \\alpha \\qquad \\forall \\, \\text{HT}\\]\n\n\nDirectly control Type I Error rate via significance level \\(\\alpha\\)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPop Quiz 🤔\n\n\nCan we set \\(\\alpha\\) to 0?"
   },
   {
     "objectID": "teaching_demo.html#section-2",
@@ -123,7 +123,7 @@
     "href": "teaching_demo.html#how-likely-is-a-type-ii-error",
     "title": "Type I and II Errors",
     "section": "How likely is a Type II Error?",
-    "text": "How likely is a Type II Error?\n\n\nbut what does it really mean?\nit means that X_bar ~ N(mu_1, sigma^2)\n\n\n\n\n\n\n\n\n\nRejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\\[P(\\text{Type II Error})= P(\\underbrace{\\text{fail to reject } H_0}_{(1)} \\mid \\underbrace{H_1 \\text{ is true}}_{(2)})\\]\n\n\nWhen would we “fail to reject \\(H_0\\)” ? \\(\\implies\\) \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha\\)\nWhat does “\\(H_1\\) is true” mean? \\(\\implies\\) \\(\\mu = \\mu_1\\), where \\(\\mu_1\\) is a number \\(&gt; \\mu_0\\)\n\n\\[\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}} \\overset{H_1}{\\sim} N(0, 1)\\]"
+    "text": "How likely is a Type II Error?\n\n\nbut what does it really mean?\nit means that when we standardize X_bar\nwe should subtract it by mu_1 instead of mu_0\n\n\n\n\n\n\n\n\n\nRejection Rule for \\(H_1: \\mu &gt; \\mu_0\\)\n\n\n\\[z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} \\geq z_{\\alpha}\\]\n\n\n\n\n\n\\[P(\\text{Type II Error})= P(\\underbrace{\\text{fail to reject } H_0}_{(1)} \\mid \\underbrace{H_1 \\text{ is true}}_{(2)})\\]\n\n\nWhen would we “fail to reject \\(H_0\\)” ? \\(\\implies\\) \\(z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} &lt; z_\\alpha\\)\nWhat does “\\(H_1\\) is true” mean? \\(\\implies\\) \\(\\mu = \\mu_1\\), where \\(\\mu_1\\) is a number \\(&gt; \\mu_0\\)\n\n\\[\\frac{\\bar{X} - \\mu_1}{\\sigma/\\sqrt{n}} \\overset{H_1}{\\sim} N(0, 1)\\]"
   },
   {
     "objectID": "teaching_demo.html#how-likely-is-a-type-ii-error-1",
@@ -165,7 +165,7 @@
     "href": "teaching_demo.html#how-do-we-interpret-beta",
     "title": "Type I and II Errors",
     "section": "How do we interpret \\(\\beta\\)?",
-    "text": "How do we interpret \\(\\beta\\)?\n\n\nWe picked z_0.05 based on H_0\nNow that H_1 is true\nfaiure to reject H_0 will lead to a wrong conclusion\nThat is, any observed test statistics to left of z_0.05\nwill result in a Type II error\n\n\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_1: \\mu = 0.3\\) were true, there is a 31.7% chance that the HT procedure will lead to the conclusion of\n\n“Fail to reject \\(H_0\\)”"
+    "text": "How do we interpret \\(\\beta\\)?\n\n\nWhen analyzing Type II error\nwe assume H_1 is true, so probability\nshould be calculated under the blue curve\nHere, any observed test statistics smaller than\nz_0.05 will result in a incorrect conclusion\nso beta is the shaded region\n\n\n\n\n\n\n\n\n\nInterpretation\n\n\nIf \\(H_1: \\mu = 0.3\\) were true, there is a 31.7% chance that the HT procedure will lead to the conclusion of\n\n“Fail to reject \\(H_0\\)”"
   },
   {
     "objectID": "teaching_demo.html#new-medication",

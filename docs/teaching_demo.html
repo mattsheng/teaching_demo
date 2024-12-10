@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.39">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.37">
 
   <meta name="author" content="Shengbin Ye">
   <title>Type I and II Errors</title>
@@ -94,7 +94,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-bdbddc60bea0d87761f4bda6bcb40716.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-b06a02ce2065f5579286889a9dbc87c5.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -219,7 +219,7 @@ Shengbin Ye
 </section>
 <section id="target-audience" class="slide level2">
 <h2>Target Audience</h2>
-<p><br> <br></p>
+<p><br></p>
 <aside class="notes">
 <ul>
 <li>Welcome to my mock lecture</li>
@@ -242,6 +242,7 @@ Shengbin Ye
 <ul>
 <li>Undergraduate students</li>
 <li>Diverse majors</li>
+<li>Taking an Introductory Statistics and Data Science course (e.g.&nbsp;STAT 202, 210)</li>
 <li>Have seen
 <ul>
 <li><strong>Normal distribution</strong></li>
@@ -540,6 +541,11 @@ Shengbin Ye
 <li>1st row is the true state of nature</li>
 <li>altough unknown to us, there are only 2 possibilities</li>
 <li>1st column is our decision</li>
+<li>This simple reality check confirms that we can make</li>
+<li>wrong decisions when conducting HT</li>
+<li>Now that we know mistakes can happen</li>
+<li>let’s try to get a sense on how likely</li>
+<li>are mistakes to occur</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -609,7 +615,7 @@ Shengbin Ye
 </section>
 <section id="how-likely-is-a-type-i-error" class="slide level2">
 <h2>How likely is a Type I Error?</h2>
-<div style="margin-bottom: 2em;">
+<div style="margin-bottom: 1em;">
 
 </div>
 <p><span class="math display">\[
@@ -623,7 +629,7 @@ Shengbin Ye
 </section>
 <section id="how-likely-is-a-type-i-error-1" class="slide level2" data-visibility="uncounted">
 <h2>How likely is a Type I Error?</h2>
-<div style="margin-bottom: 2em;">
+<div style="margin-bottom: 1em;">
 
 </div>
 <p><span class="math display">\[
@@ -634,7 +640,7 @@ Shengbin Ye
     &amp;= \alpha
 \end{align}
 \]</span></p>
-<div class="large" title="<span style='font-size: 1.5em; color: #0078D7;'>Theorem</span>">
+<div title="<span style='font-size: 1.5em; color: #0078D7;'>Theorem</span>">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -644,11 +650,13 @@ Shengbin Ye
 <p><strong><span style="font-size: 1.5em; color: #0078D7;">Theorem</span></strong></p>
 </div>
 <div class="callout-content">
+<div class="large">
 <p><span class="math display">\[P(\text{Type I Error}) = \alpha \qquad \forall \, \text{HT}\]</span></p>
 <div>
 <ul>
 <li class="fragment">Directly control Type I Error rate via <span class="bold-red">significance level</span> <span class="math inline">\(\alpha\)</span></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -840,7 +848,6 @@ Shengbin Ye
 </div>
 </div>
 <div class="r-stack">
-<p><img data-src="type_I_error_1.png" class="fragment fade-in-then-out" width="700" height="437"></p>
 <p><img data-src="type_I_error_2.png" class="fragment" width="700" height="437"></p>
 </div>
 </section>
@@ -849,7 +856,8 @@ Shengbin Ye
 <aside class="notes">
 <ul>
 <li>but what does it really mean?</li>
-<li>it means that X_bar ~ N(mu_1, sigma^2)</li>
+<li>it means that when we standardize X_bar</li>
+<li>we should subtract it by mu_1 instead of mu_0</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1027,11 +1035,12 @@ Shengbin Ye
 <h2>How do we interpret <span class="math inline">\(\beta\)</span>?</h2>
 <aside class="notes">
 <ul>
-<li>We picked z_0.05 based on H_0</li>
-<li>Now that H_1 is true</li>
-<li>faiure to reject H_0 will lead to a wrong conclusion</li>
-<li>That is, any observed test statistics to left of z_0.05</li>
-<li>will result in a Type II error</li>
+<li>When analyzing Type II error</li>
+<li>we assume H_1 is true, so probability</li>
+<li>should be calculated under the blue curve</li>
+<li>Here, any observed test statistics smaller than</li>
+<li>z_0.05 will result in a incorrect conclusion</li>
+<li>so beta is the shaded region</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1108,7 +1117,7 @@ Shengbin Ye
 
 </div></div>
 </section>
-<section id="new-medication-1" class="slide level2 midd">
+<section id="new-medication-1" class="slide level2 midd" data-visibility="uncounted">
 <h2>New Medication 💊</h2>
 <div class="columns">
 <div class="column" style="opacity: 0.5;">
@@ -1292,7 +1301,7 @@ Use simple mathematical operators to construct **formulas** $f_1, f_2, \ldots$
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: false,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

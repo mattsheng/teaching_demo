@@ -19,7 +19,7 @@ format:
           };
           </script>
     theme: [custom.scss]
-    slide-number: true
+    slide-number: false
     chalkboard: true
     width: 1120
     height: 700
@@ -34,7 +34,6 @@ library(ggplot2)
 
 ## Target Audience
 <br>
-<br>
 
 ::: {.notes}
 - Welcome to my mock lecture
@@ -46,6 +45,7 @@ library(ggplot2)
 ::: {.large}
 - Undergraduate students
 - Diverse majors
+- Taking an Introductory Statistics and Data Science course (e.g. STAT 202, 210)
 - Have seen 
   + **Normal distribution**
   + **Hypothesis Test**
@@ -324,6 +324,11 @@ $z = 2.7$ is more likely to come from the <span class="bold-blue">blue distribut
 - 1st row is the true state of nature
 - altough unknown to us, there are only 2 possibilities
 - 1st column is our decision
+- This simple reality check confirms that we can make
+- wrong decisions when conducting HT
+- Now that we know mistakes can happen
+- let's try to get a sense on how likely
+- are mistakes to occur
 :::
 
 ::: {style="margin-bottom: 2em;"}
@@ -356,7 +361,7 @@ $z = 2.7$ is more likely to come from the <span class="bold-blue">blue distribut
 
 ## How likely is a Type I Error?
 
-::: {style="margin-bottom: 2em;"}
+::: {style="margin-bottom: 1em;"}
 :::
 
 $$
@@ -370,7 +375,7 @@ $$
 
 ## How likely is a Type I Error? {visibility="uncounted"}
 
-::: {style="margin-bottom: 2em;"}
+::: {style="margin-bottom: 1em;"}
 :::
 
 $$
@@ -382,12 +387,16 @@ $$
 \end{align}
 $$
 
-::: {.callout-note title="<span style='font-size: 1.5em; color: #0078D7;'>Theorem</span>" .large}
+::: {.callout-note title="<span style='font-size: 1.5em; color: #0078D7;'>Theorem</span>"}
+
+::: {.large}
 
 $$P(\text{Type I Error}) = \alpha \qquad \forall \, \text{HT}$$
 
 ::: {.incremental}
 - Directly control Type I Error rate via <span class="bold-red">significance level</span> $\alpha$
+:::
+
 :::
 
 :::
@@ -507,8 +516,6 @@ n_rej / 10000
 :::
 
 ::: {.r-stack}
-![](type_I_error_1.png){.fragment .fade-in-then-out width="700" height="437.5"}
-
 ![](type_I_error_2.png){.fragment width="700" height="437.5"}
 :::
 
@@ -519,7 +526,8 @@ n_rej / 10000
 
 ::: {.notes}
 - but what does it really mean?
-- it means that X_bar ~ N(mu_1, sigma^2)
+- it means that when we standardize X_bar
+- we should subtract it by mu_1 instead of mu_0
 :::
 
 ::: {.callout-tip title="<span style='font-size: 1em; color: #44745A;'>Rejection Rule for $H_1: \mu > \mu_0$</span>"}
@@ -667,11 +675,12 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 ## How do we interpret $\beta$?
 
 ::: {.notes}
-- We picked z_0.05 based on H_0
-- Now that H_1 is true
-- failure to reject H_0 will lead to a wrong conclusion
-- That is, any observed test statistics to left of z_0.05
-- will result in a Type II error
+- When analyzing Type II error
+- we assume H_1 is true, so probability 
+- should be calculated under the blue curve
+- Here, any observed test statistics smaller than
+- z_0.05 will result in a incorrect conclusion
+- so beta is the shaded region
 :::
 
 ::: {.callout-note title="<span style='font-size: 1.3em; color: #0078D7;'>Interpretation</span>"}
@@ -750,7 +759,7 @@ pnorm((mu0 - mu1)/(sigma / sqrt(n)) + z_alpha)
 
 
 
-## New Medication `r emo::ji("pill")` {.midd}
+## New Medication `r emo::ji("pill")` {.midd visibility="uncounted"}
 
 :::: {.columns}
 
